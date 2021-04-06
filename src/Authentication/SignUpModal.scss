@@ -1,0 +1,38 @@
+.signup-container {
+  display: flex;
+  flex-direction: column;
+}
+.auth {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  svg {
+    height: 2em;
+    width: 2em;
+  }
+  .signin-text {
+    margin-left: 1.5rem;
+    font-size: 1.2rem;
+    color: #49545c;
+  }
+  &:hover {
+    transition: 0.3s;
+    background-color: lightgray;   
+  }
+}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px; /* 5px rounded corners */
+}
+.center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--white);
+  padding: 1rem;
+  box-shadow: 0 15px 82px 5px rgba(5, 19, 65, 0.25);
+}
