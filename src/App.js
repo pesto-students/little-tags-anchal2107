@@ -1,10 +1,12 @@
 import './App.css';
-import SignUpModal from "./Authentication/SignUpModal";
+import Footer from './footer/Footer';
+import Header from './header/Header';
 
 function App() {
   return (
     <div className="App">
-      <SignUpModal />
+      <Header />
+      <Footer />
     </div>
   );
 }
