@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   background-color: skyblue;
-  height: 13vh;
 }
 .profile-icon {
   display: flex;
@@ -54,7 +53,7 @@
   .search-filter {
     justify-content: center;
     input {
-      width: 85vw;
+      width: 85%;
     }
   }
   .header {

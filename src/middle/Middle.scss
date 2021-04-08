@@ -1,0 +1,35 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 40vh;
+}
+
+.item1 {
+  grid-area: cat1;
+}
+.item2 {
+  grid-area: cat2;
+}
+.item3 {
+  grid-area: cat3;
+}
+.item4 {
+  grid-area: cat4;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "cat1 cat1 cat3 cat4"
+    "cat2 cat2 cat3 cat4";
+  grid-gap: 10px;
+  background-color: #2196f3;
+  padding: 10px;
+}
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}

@@ -22,7 +22,7 @@ export default ProfileIcon;
 
 ProfileIcon.propTypes = {
   imagePath: PropTypes.string,
-  username: PropTypes.string.isRequired,
+  username: PropTypes.string,
 };
 
 PropTypes.defaultProps = {
