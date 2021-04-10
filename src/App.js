@@ -1,20 +1,17 @@
 import "./App.css";
-import Footer from "./footer/Footer";
-import HamburgerMenu from "./hamburgermenu/HamburgerMenu";
+import Middle from "./middle/Middle";
 import Header from "./header/Header";
-import Home from "./middle/Home";
-import ProductInfo from "./middle/ProductInfo";
+import Footer from "./footer/Footer";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <div>
-        <Home />
-        <ProductInfo />
-      </div>
-      <HamburgerMenu />
-      <Footer />
+      <BrowserRouter>
+        <Header></Header>
+        <Middle></Middle>
+        <Footer></Footer>
+      </BrowserRouter>
     </div>
   );
 }
