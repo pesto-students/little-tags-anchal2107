@@ -1,4 +1,4 @@
-export function toggleHamburgerMenu(blnClose) {
+function toggleHamburgerMenu(blnClose) {
   const divHamburgerMenu = document.getElementById("hamburgerMenu");
   if (divHamburgerMenu) {
     if (blnClose) {
@@ -8,3 +8,10 @@ export function toggleHamburgerMenu(blnClose) {
     }
   }
 }
+
+function openSignInModal() {
+  const divSignUpModal = document.getElementById("signUpModal");
+  divSignUpModal.style.display = "block";
+}
+
+export { toggleHamburgerMenu, openSignInModal };
