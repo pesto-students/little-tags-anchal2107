@@ -5,7 +5,7 @@ function CartIcon() {
     <>
       <div className="cart-icon">
         <TiShoppingCart />
-        <h3>Cart</h3>
+        <span className="badge">2</span>
       </div>
     </>
   );
