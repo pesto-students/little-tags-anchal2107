@@ -10,6 +10,7 @@ import ConfirmationPage from "../buypage/ConfirmationPage";
 import ShippingDetails from "../buypage/ShippingDetails";
 import ProductList from "../product/ProductList";
 import Product from "../product/Product";
+import Cart from "../order/Cart"
 export default function Middle() {
   return (
     <div className="Middle">
@@ -20,8 +21,9 @@ export default function Middle() {
         <Route path={ROUTES_Const.ABOUT} component={About}></Route>
         <Route path={ROUTES_Const.ORDER_CONFIRMATION} component={ConfirmationPage}></Route>
         <Route path={ROUTES_Const.SHIP_DETAILS} component={ShippingDetails}></Route>        
-        <Route path={ROUTES_Const.PRODUCT_LIST} component={ProductList}></Route>        
+        <Route path={ROUTES_Const.PRODUCT_LIST} component={ProductList}></Route>
         <Route path={ROUTES_Const.PRODUCT_DETAIL} exact component={Product}></Route>
+        <Route path={ROUTES_Const.CART} exact component={Cart}></Route>
         <Route path={ROUTES_Const.LANDING} component={Home}></Route>
       </Switch>
     </div>

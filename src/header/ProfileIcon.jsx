@@ -28,7 +28,7 @@ ProfileIcon.propTypes = {
   username: PropTypes.string,
 };
 
-PropTypes.defaultProps = {
+ProfileIcon.defaultProps = {
   imagePath: "",
   username: "",
 };
