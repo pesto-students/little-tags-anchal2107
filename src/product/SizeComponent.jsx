@@ -4,11 +4,11 @@ function SizeComponent() {
       <div className="size align-left">
         <h4>Size</h4>
         <ul>
-          <li class="bg">XS</li>
-          <li class="bg">S</li>
-          <li class="bg">M</li>
-          <li class="bg">L</li>
-          <li class="bg">XL</li>
+          <li className="bg">XS</li>
+          <li className="bg">S</li>
+          <li className="bg">M</li>
+          <li className="bg">L</li>
+          <li className="bg">XL</li>
         </ul>
       </div>
     </>

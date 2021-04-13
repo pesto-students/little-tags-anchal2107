@@ -1,0 +1,42 @@
+.parent-container {
+  display: inline-flex;
+  flex-direction: column;
+  width: 26%;
+  margin: 1.5rem 0;
+  h1 {
+    margin: 1rem 0;
+  }
+}
+.ship-info-card {
+  padding: 1.5rem;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  display: inline-flex;
+  flex-direction: column;
+  text-align: left;
+  h3,
+  p {
+    margin: 0.5rem 0;
+  }
+}
+.payment-card {
+  text-align: left;
+  padding: 0.5rem 2rem;
+  .payment-button-div {
+    text-align: center;
+  }
+  .payment-button {
+    align-self: center;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .parent-container {
+    width: 95%;
+  }
+}

@@ -1,0 +1,51 @@
+.shipping-details-container {
+  display: inline-flex;
+  flex-direction: column;
+  width: 30%;
+  margin: 1rem;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  padding: 1rem;
+  .form-input {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin: 0.6rem;
+  }
+  input,
+  textarea {
+    padding: 0.6rem;
+  }
+  textarea {
+    min-height: 10vh;
+  }
+  span {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0;
+  }
+  input[type="checkbox"] {
+    height: 1.2rem;
+    width: 1.2rem;
+    justify-content: center;
+    margin-right: 0.2rem;
+  }
+  /*reusable*/
+  .payment-button-div {
+    text-align: center;
+  }
+  .payment-button {
+    align-self: center;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .shipping-details-container {
+    width: 100%;
+  }
+}
