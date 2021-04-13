@@ -4,6 +4,7 @@ import ProfileIcon from "./ProfileIcon";
 import SearchFilter from "./SearchFilter";
 import "./Header.scss";
 
+
 function Header() {
   return (
     <div className="header">

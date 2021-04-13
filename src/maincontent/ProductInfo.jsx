@@ -1,4 +1,4 @@
-import "./Middle.scss";
+import "./MainContent.scss";
 
 function ProductInfo() {
   return (

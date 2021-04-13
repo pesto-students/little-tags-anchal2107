@@ -1,20 +1,23 @@
-import "./App.css";
-import Middle from "./middle/Middle";
+import React from "react";
+import "./App.scss";
+import MainContent from "./maincontent/MainContent";
 import Header from "./header/Header";
 import Footer from "./footer/Footer";
 import { BrowserRouter } from "react-router-dom";
-import { Provider } from "react-redux";
-import store from "./store";
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <BrowserRouter>
-        <Provider store={store}>
-          <Header></Header>
-          <Middle></Middle>
-          <Footer></Footer>
-        </Provider>
+        <header className="header">
+          <Header />
+        </header>
+        <main className="main">
+          <MainContent />
+        </main>
+        <footer class="footer">
+          <Footer /> 
+        </footer>
       </BrowserRouter>
     </div>
   );

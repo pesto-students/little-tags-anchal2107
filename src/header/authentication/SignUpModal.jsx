@@ -1,6 +1,5 @@
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
-// import { signOut } from "../commonFunction.js";
 import "./SignUpModal.scss";
 
 function SignUpModal() {
