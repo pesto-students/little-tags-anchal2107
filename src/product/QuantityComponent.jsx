@@ -1,15 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 
-function QuantityComponent() {
-  const [quantity, setQuantity] = useState(1);
+function QuantityComponent({ handleQuantityCallback }) {
 
   const increseQuantity = () => {
-    setQuantity(quantity + 1);
+    handleQuantityCallback((quantity) => {
+      document.getElementById("quantityInput").innerHTML = quantity + 1;
+      return quantity + 1;
+    });
   };
   const decreseQuantity = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
+    handleQuantityCallback((quantity) => {
+      if (quantity > 1) {
+        document.getElementById("quantityInput").innerHTML = quantity - 1;
+        return quantity - 1;
+      }
+      return quantity;
+    });
   };
   return (
     <>
@@ -17,14 +24,7 @@ function QuantityComponent() {
         <h4>Quantity</h4>
         <div className="quantity-container">
           <div onClick={decreseQuantity}>-</div>
-          <input
-            type="text"
-            id="myNumber"
-            className="form-control"
-            value={quantity}
-            onChange={() => {}}
-          />
-
+          <div id="quantityInput">1</div>
           <div onClick={increseQuantity}>+</div>
         </div>
       </div>
@@ -33,3 +33,11 @@ function QuantityComponent() {
 }
 
 export default QuantityComponent;
+
+QuantityComponent.propTypes = {
+  handleQuantityCallback: PropTypes.func.isRequired,
+};
+
+QuantityComponent.defaultProps = {
+  handleQuantityCallback: () => {},
+};
