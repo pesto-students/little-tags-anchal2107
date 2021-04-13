@@ -87,7 +87,7 @@
   color: black;
 }
 
-.footer-category .footer-category-links {
+.footer-category .footer-category-links nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

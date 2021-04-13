@@ -2,7 +2,9 @@ import MenuIcon from "./MenuIcon";
 import CartIcon from "./CartIcon";
 import ProfileIcon from "./ProfileIcon";
 import SearchFilter from "./SearchFilter";
+
 import "./Header.scss";
+
 
 function Header() {
   return (
