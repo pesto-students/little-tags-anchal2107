@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function QuantityComponent({ handleQuantityCallback }) {
-
   const increseQuantity = () => {
     handleQuantityCallback((quantity) => {
       document.getElementById("quantityInput").innerHTML = quantity + 1;
@@ -20,12 +19,28 @@ function QuantityComponent({ handleQuantityCallback }) {
   };
   return (
     <>
-      <div className="align-left">
+      <div className="align-left mt-1">
         <h4>Quantity</h4>
-        <div className="quantity-container">
-          <div onClick={decreseQuantity}>-</div>
-          <div id="quantityInput">1</div>
-          <div onClick={increseQuantity}>+</div>
+        <div className="quantity flex pt-0">
+          <button
+            className="minus-btn"
+            type="button"
+            name="button"
+            onClick={decreseQuantity}
+          >
+            -
+          </button>
+          <div className="product-quantity" id="quantityInput">
+            1
+          </div>
+          <button
+            className="plus-btn"
+            type="button"
+            name="button"
+            onClick={increseQuantity}
+          >
+            +
+          </button>
         </div>
       </div>
     </>
