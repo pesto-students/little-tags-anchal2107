@@ -3,13 +3,28 @@ function SizeComponent() {
     <>
       <div className="size align-left">
         <h4>Size</h4>
-        <ul>
-          <li className="bg">XS</li>
-          <li className="bg">S</li>
-          <li className="bg">M</li>
-          <li className="bg">L</li>
-          <li className="bg">XL</li>
-        </ul>
+        <div className="size">
+          <div>
+            <input type="radio" id="xs" value="xs" name="size" checked />
+            <label for="xs"><span>XS</span></label>
+          </div>
+          <div>
+            <input type="radio" id="s" name="size" value="s" />
+            <label for="s"><span>S</span></label>
+          </div>
+          <div>
+            <input type="radio" id="m" name="size" value="m" />
+            <label for="m"><span>M</span></label>
+          </div>
+          <div>
+            <input type="radio" id="l" name="size" value="l" />
+            <label for="l"><span>L</span></label>
+          </div>
+          <div>
+            <input type="radio" id="xl" name="size" value="xl" />
+            <label for="xl"><span>XL</span></label>
+          </div>
+        </div>
       </div>
     </>
   );

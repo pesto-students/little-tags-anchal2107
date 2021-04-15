@@ -16,7 +16,7 @@ function Product() {
 
   useEffect(() => {
     dispatch({ type: actions.PRODUCT, id });
-  }, [id]);
+  }, [dispatch, id]);
 
   const handleAddToCart = () => {
     dispatch({ type: actions.ADD_TO_CART, payload: { product, quantity } });
