@@ -10,7 +10,7 @@ const cartReducer = (state = initialState, action) => {
   let fetchProduct, index;
   switch (action.type) {
     case actions.ADD_TO_CART:
-      const { product, quantity } = action.payload;
+      const { product, quantity, size } = action.payload;
       const checkForExistingProduct = state.products.find(
         (p) => p.id === product.id
       );
@@ -20,6 +20,7 @@ const cartReducer = (state = initialState, action) => {
         const totalPrice = state.totalPrice + product.price * quantity;
         const totalQuantity = state.totalQuantity + quantity;
         product.quantity = quantity;
+        product.size = size;
         return {
           ...state,
           products: [...state.products, product],
@@ -72,7 +73,7 @@ const cartReducer = (state = initialState, action) => {
         products: filteredProduct,
         totalPrice:
           state.totalPrice - fetchProduct.price * fetchProduct.quantity,
-        totalQuantity: state.totalQuantity - fetchProduct.totalQuantity,
+        totalQuantity: state.totalQuantity - fetchProduct.quantity,
       };
     default:
       return state;

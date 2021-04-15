@@ -10,27 +10,34 @@ import "./Product.scss";
 
 function Product() {
   const [quantity, setQuantity] = useState(1);
+  const [size, setSize] = useState("XS");
   const { id } = useParams();
   const dispatch = useDispatch();
   const { product } = useSelector((state) => state.productsReducer);
 
   useEffect(() => {
     dispatch({ type: actions.PRODUCT, id });
-  }, [id]);
+  }, [dispatch, id]);
 
   const handleAddToCart = () => {
-    dispatch({ type: actions.ADD_TO_CART, payload: { product, quantity } });
+    dispatch({
+      type: actions.ADD_TO_CART,
+      payload: { product, quantity, size },
+    });
   };
 
   const handleQuantityCallback = (quantity) => {
     setQuantity(quantity);
   };
 
+  const handleSizeCallback = (size) => {
+    setSize(size);
+  };
   return (
     <>
       <div className="product-container">
         <div className="product-carousel-container">
-          <Carousel />
+          <Carousel slides={product.image_carousel} />
         </div>
         <div className="product-info-container">
           <h2>{product.title}</h2>
@@ -38,7 +45,7 @@ function Product() {
             <h3>$ {product.price}</h3>
           </span>
           <p>{product.description}</p>
-          <SizeComponent />
+          <SizeComponent handleSizeCallback={handleSizeCallback} />
           <QuantityComponent handleQuantityCallback={handleQuantityCallback} />
           <CartComponent handleAddToCart={handleAddToCart} />
         </div>

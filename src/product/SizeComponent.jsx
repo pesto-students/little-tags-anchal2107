@@ -1,18 +1,89 @@
-function SizeComponent() {
+import React from "react";
+import PropTypes from "prop-types";
+
+function SizeComponent({ handleSizeCallback }) {
+  const handleSizeChange = (e) => {
+    handleSizeCallback(e.target.value);
+  };
+
   return (
     <>
       <div className="size align-left">
         <h4>Size</h4>
-        <ul>
-          <li className="bg">XS</li>
-          <li className="bg">S</li>
-          <li className="bg">M</li>
-          <li className="bg">L</li>
-          <li className="bg">XL</li>
-        </ul>
+        <div className="size">
+          <div>
+            <input
+              type="radio"
+              id="xs"
+              name="size"
+              value="XS"
+              onChange={handleSizeChange}
+              checked
+            />
+            <label htmlFor="xs">
+              <span>XS</span>
+            </label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="s"
+              name="size"
+              value="S"
+              onChange={handleSizeChange}
+            />
+            <label htmlFor="s">
+              <span>S</span>
+            </label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="m"
+              name="size"
+              value="M"
+              onChange={handleSizeChange}
+            />
+            <label htmlFor="m">
+              <span>M</span>
+            </label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="l"
+              name="size"
+              value="L"
+              onChange={handleSizeChange}
+            />
+            <label htmlFor="l">
+              <span>L</span>
+            </label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="xl"
+              name="size"
+              value="XL"
+              onChange={handleSizeChange}
+            />
+            <label htmlFor="xl">
+              <span>XL</span>
+            </label>
+          </div>
+        </div>
       </div>
     </>
   );
 }
 
 export default SizeComponent;
+
+SizeComponent.propTypes = {
+  handleSizeCallback: PropTypes.func.isRequired,
+};
+
+SizeComponent.defaultProps = {
+  handleSizeCallback: () => {},
+};

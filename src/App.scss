@@ -31,9 +31,7 @@
   justify-content: "center";
 }
 
-// .z-1 {
-//   z-index: 1;
-// }
+
 
 @media all and (min-width: 600px) {
 }
@@ -41,11 +39,8 @@
 @media all and (min-width: 800px) {
   .main {
     flex: 3 0px;
+    order: 2;
   }
-  .main {
-    order: 1;
-  }
-  /* .aside-2 { order: 3; } */
   .footer {
     order: 2;
   }

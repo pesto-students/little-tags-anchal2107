@@ -1,25 +1,50 @@
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 import "./Carousel.scss";
 
-function Carousel() {
-  return (
-    <>
-      <div className="slider">
-        <a href="#slide-1">1</a>
-        <a href="#slide-2">2</a>
-        <a href="#slide-3">3</a>
-        <a href="#slide-4">4</a>
-        <a href="#slide-5">5</a>
+const Carousel = ({ slides }) => {
+  const [current, setCurrent] = useState(0);
+  const length = slides.length;
 
-        <div className="slides">
-          <div id="slide-1">1</div>
-          <div id="slide-2">2</div>
-          <div id="slide-3">3</div>
-          <div id="slide-4">4</div>
-          <div id="slide-5">5</div>
-        </div>
-      </div>
-    </>
+  const nextSlide = () => {
+    setCurrent(current === length - 1 ? 0 : current + 1);
+  };
+
+  const prevSlide = () => {
+    setCurrent(current === 0 ? length - 1 : current - 1);
+  };
+
+  if (!Array.isArray(slides) || slides.length <= 0) {
+    return null;
+  }
+
+  return (
+    <section className="slider">
+      <FaArrowCircleLeft className="left-arrow" onClick={prevSlide} />
+      <FaArrowCircleRight className="right-arrow" onClick={nextSlide} />
+      {slides.map((slide, index) => {
+        return (
+          <div
+            className={index === current ? "slide active" : "slide"}
+            key={index}
+          >
+            {index === current && (
+              <img src={slide.image} alt="product images" className="image" />
+            )}
+          </div>
+        );
+      })}
+    </section>
   );
-}
+};
 
 export default Carousel;
+
+Carousel.propTypes = {
+  slides: PropTypes.object,
+};
+
+Carousel.defaultProps = {
+  slides: [],
+};
