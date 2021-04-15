@@ -12,10 +12,11 @@ function App() {
         <header className="header">
           <Header />
         </header>
-        <main className="main">
+        <main className="main" >
+        
           <MainContent />
         </main>
-        <footer class="footer">
+        <footer className="footer">
           <Footer /> 
         </footer>
       </BrowserRouter>

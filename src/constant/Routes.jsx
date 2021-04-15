@@ -8,3 +8,5 @@ export const SHIP_DETAILS = "/ship-detail";
 export const PRODUCT_LIST = "/products";
 export const PRODUCT_DETAIL = "/product/:id";
 export const CART = "/cart";
+export const VIEW_CURRENT_PROFILE = "/your-profile"
+export const EDIT_CURRENT_PROFILE = "/edit-profile"

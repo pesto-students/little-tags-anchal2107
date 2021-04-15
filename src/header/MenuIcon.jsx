@@ -32,6 +32,14 @@ function MenuIcon() {
                 routeurl={ROUTES_CONST.PRODUCT_LIST}
                 linkname="Products"
               ></Routelink>
+                <Routelink
+                routeurl={ROUTES_CONST.VIEW_CURRENT_PROFILE}
+                linkname="Your Profile"
+              ></Routelink>
+                 <Routelink
+                routeurl={ROUTES_CONST.EDIT_CURRENT_PROFILE}
+                linkname="Eidt Profile"
+              ></Routelink>
               <Routelink
                 routeurl={ROUTES_CONST.HOME}
                 linkname="Home"

@@ -25,37 +25,29 @@
 .main {
   text-align: left;
   background: deepskyblue;
+  flex: 1;
+  flex-direction: "row";
+  align-items: "center";
+  justify-content: "center";
 }
 
-.aside-1 {
-  display: flex;
-  background: gold;
-}
-
-.z-1 {
-  z-index: 1;
-}
+// .z-1 {
+//   z-index: 1;
+// }
 
 @media all and (min-width: 600px) {
-  .aside {
-    flex: 1 0 0;
-  }
 }
 
 @media all and (min-width: 800px) {
   .main {
     flex: 3 0px;
   }
-  .aside-1 {
-  
-    order: 1;
-  }
   .main {
-    order: 2;
+    order: 1;
   }
   /* .aside-2 { order: 3; } */
   .footer {
-    order: 3;
+    order: 2;
   }
 }
 
