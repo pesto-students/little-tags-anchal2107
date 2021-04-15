@@ -4,7 +4,7 @@ import { TiShoppingCart } from "react-icons/ti";
 function CartComponent({ handleAddToCart }) {
   return (
     <>
-      <div className="cart-container" onClick={handleAddToCart}>
+      <div className="cart-container mt-1" onClick={handleAddToCart}>
         <TiShoppingCart />
         <div>ADD TO CART</div>
       </div>

@@ -1,18 +1,3 @@
-// .cart-card-container {
-//   display: flex;
-// }
-// .flex {
-//   display: flex;
-// }
-// .flex-col {
-//   flex-direction: column;
-// }
-// .flex-1 {
-//   flex-grow: 1;
-// }
-// .space-between {
-//   justify-content: space-between;
-// }
 .cart-div-container {
   display: flex;
 }
@@ -25,6 +10,7 @@
   display: flex;
   flex-direction: column;
   flex-grow: 0.6;
+  background: whitesmoke;
 }
 .summary {
   flex-grow: 0.4;
@@ -84,14 +70,14 @@
     background-position: right;
   }
 }
-.image {
+.cart-product-image {
   margin-right: 50px;
 }
 
 .description {
   padding-top: 10px;
   margin-right: 60px;
-  width: 115px;
+  width: 270px;
   span {
     display: block;
     font-size: 1.1rem;
@@ -106,35 +92,6 @@
     margin-top: 8px;
     color: #86939e;
   }
-}
-.quantity {
-  padding-top: 20px;
-  margin-right: 60px;
-  .quantity-number {
-    margin: 0 1rem;
-  }
-  input {
-    -webkit-appearance: none;
-    border: none;
-    text-align: center;
-    width: 32px;
-    font-size: 16px;
-    color: #43484d;
-    font-weight: 300;
-  }
-}
-button[class*="btn"] {
-  width: 30px;
-  height: 30px;
-  background-color: #e1e8ee;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
-}
-button:focus,
-input:focus {
-  outline: 0;
 }
 .total-price {
   width: 83px;
@@ -196,10 +153,10 @@ input:focus {
     flex-wrap: wrap;
     justify-content: center;
   }
-  .image img {
+  .cart-product-image img {
     width: 50%;
   }
-  .image,
+  .cart-product-image,
   .quantity,
   .description {
     width: 100%;

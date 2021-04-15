@@ -30,7 +30,7 @@ function Cart() {
                   <GrClose />
                 </div>
 
-                <div className="image">
+                <div className="cart-product-image">
                   <img
                     src={product.image}
                     alt="product"
