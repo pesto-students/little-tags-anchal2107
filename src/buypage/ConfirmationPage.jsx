@@ -4,8 +4,8 @@ import "./ConfirmationPage.scss";
 
 function ConfirmationPage() {
   return (
-    <>
-      <div className="parent-container">
+    <div className="app">
+      <div className="confirm-page-container">
         <h1>Delivering to</h1>
         <div>
           <ShipInfoCard />
@@ -14,7 +14,7 @@ function ConfirmationPage() {
           <PaymentCard />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -1,19 +1,36 @@
 import * as actions from "../../constant/actionTypes";
-import products from "../../data/products.json"
+import products from "../../data/products.json";
 
 const initialState = {
-  products,
   product: {},
+  filteredProducts: [],
 };
 
 const productsReducer = (state = initialState, action) => {
+  let value, filteredValues;
   switch (action.type) {
     case actions.PRODUCT:
       return {
         ...state,
-        product: state.products.find(
-          (product) => product.id === parseInt(action.id)
-        ),
+        product: products.find((product) => product.id === parseInt(action.id)),
+      };
+    case actions.FETCH_PRODUCT_BY_SEARCH_TEXT:
+      value = action.payload;
+      filteredValues = products.filter((product) => {
+        return product.title.toLowerCase().includes(value);
+      });
+      return {
+        ...state,
+        filteredProducts: filteredValues,
+      };
+    case actions.FETCH_PRODUCT_BY_CATEGORY:
+      value = action.payload;
+      filteredValues = products.filter((product) => {
+        return product.category.toLowerCase().includes(value);
+      });
+      return {
+        ...state,
+        filteredProducts: filteredValues,
       };
     default:
       return state;

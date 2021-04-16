@@ -2,7 +2,7 @@ import "./RadioButton.scss";
 
 const RadioButton = (props) => {
   return (
-    <div className="RadioButton">
+    <div className="radio-button">
       <input
         id={props.id}
         onChange={props.changed}

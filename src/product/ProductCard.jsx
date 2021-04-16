@@ -8,15 +8,15 @@ function ProductCard({ id, title, image, price }) {
       <div id={id} className="product-card-container">
         <Link to={`/product/${id}`}>
           <div>
-            <img src={image} alt="product" height="300" width="250" />
+            <img src={image} alt="product" height="330" />
           </div>
           <div>
-            <h4 className="overflow" title={title}>
+            <h3 className="overflow" title={title}>
               {title}
-            </h4>
+            </h3>
           </div>
           <div>
-            <h4 className="font-normal">$ {price}</h4>
+            <h3 className="font-normal">$ {price}</h3>
           </div>
         </Link>
       </div>

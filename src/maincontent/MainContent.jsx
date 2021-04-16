@@ -29,7 +29,12 @@ function MainContent() {
           path={ROUTES_CONST.SHIP_DETAILS}
           component={ShippingDetails}
         ></Route>
-                <Route
+        <Route
+          path={ROUTES_CONST.PRODUCT_SEARCH}
+          exact
+          component={ProductList} 
+        ></Route>
+        <Route
           path={ROUTES_CONST.VIEW_CURRENT_PROFILE}
           component={ViewCurrentProfile}
         ></Route>
@@ -44,7 +49,7 @@ function MainContent() {
           exact
           component={Product}
         ></Route>
-        <Route path={ROUTES_CONST.CART} exact component={Cart}></Route>
+        <Route path={ROUTES_CONST.CART} exact component={Cart}></Route>        
         <Route path={ROUTES_CONST.LANDING} component={Home}></Route>
       </Switch>
     </div>

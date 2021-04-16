@@ -55,16 +55,19 @@
 }
 .cart-container {
   display: flex;
-  background-color: black;
+  background-color: #080808;
   color: white;
   border-radius: 5px;
-  width: 26%;
+  width: 30%;
   padding: 0.6rem;
   align-items: center;
   margin: 0.6rem 0;
   cursor: pointer;
   svg {
     margin: 0 0.5rem;
+  }
+  &:hover {
+    background-color: black;
   }
 }
 .align-left {

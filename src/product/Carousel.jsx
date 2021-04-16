@@ -42,7 +42,7 @@ const Carousel = ({ slides }) => {
 export default Carousel;
 
 Carousel.propTypes = {
-  slides: PropTypes.object,
+  slides: PropTypes.array,
 };
 
 Carousel.defaultProps = {
