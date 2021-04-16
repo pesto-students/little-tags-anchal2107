@@ -5,11 +5,13 @@ import { Routelink } from "./Routelink";
 import * as ROUTES_CONST from "../constant/Routes";
 import "./MenuIcon.scss";
 
-function MenuIcon() {
+function MenuIcon(props) {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   const handleToggle = () => {
     setNavbarOpen(!navbarOpen);
+    console.log(` navbarvalye ${navbarOpen}`);
+    props.onHambergerOpen(!navbarOpen);
   };
 
   return (

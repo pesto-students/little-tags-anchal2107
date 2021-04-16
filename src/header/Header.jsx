@@ -5,10 +5,10 @@ import SearchFilter from "./SearchFilter";
 import "./Header.scss";
 
 
-function Header() {
-  return (
+function Header(props) {
+ return (
     <div className="header">
-      <MenuIcon />
+      <MenuIcon onHambergerOpen={props.onHambergerOpenFunFromApp}/>
       <div className="logo">
         <h1>Little Tags</h1>
       </div>
