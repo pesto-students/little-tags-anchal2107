@@ -1,4 +1,5 @@
 import "./ViewCurrentProfile";
+import '../style/Card.scss'
 import { useSelector } from "react-redux";
 
 
@@ -8,7 +9,7 @@ const ViewCurrentProfile = () => {
   return (
     <div className="card">
       <img
-        src="https://scontent.fstv3-1.fna.fbcdn.net/v/t1.6435-9/74238360_2183486101947984_7999950112962904064_n.jpg?_nc_cat=108&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=_Zus-99OfWQAX99d7qO&_nc_ht=scontent.fstv3-1.fna&oh=db4f789952beca3e3b7396c356cb2598&oe=609E3EBE"
+        src="https://www.doz.com/cms/wp-content/uploads/2014/05/online-profile.jpg"
         alt="John"
         style={{ width: "100px", verticalAlign: "center" }}
       />
