@@ -10,8 +10,7 @@ function MenuIcon(props) {
 
   const handleToggle = () => {
     setNavbarOpen(!navbarOpen);
-    console.log(` navbarvalye ${navbarOpen}`);
-    props.onHambergerOpen(!navbarOpen);
+     props.onHambergerOpen(!navbarOpen);
   };
 
   return (
