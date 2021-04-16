@@ -15,7 +15,7 @@ function App() {
         <main className="main">
           <MainContent />
         </main>
-        <footer class="footer">
+        <footer className="footer">
           <Footer /> 
         </footer>
       </BrowserRouter>

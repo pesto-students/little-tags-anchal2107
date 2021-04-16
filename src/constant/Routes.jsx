@@ -8,3 +8,4 @@ export const SHIP_DETAILS = "/ship-detail";
 export const PRODUCT_LIST = "/products";
 export const PRODUCT_DETAIL = "/product/:id";
 export const CART = "/cart";
+export const PRODUCT_SEARCH = "/products/:search";

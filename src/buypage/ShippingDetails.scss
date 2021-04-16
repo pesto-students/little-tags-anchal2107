@@ -39,8 +39,12 @@
     background-color: black;
     color: white;
     border-radius: 10px;
-    padding: 1rem 2rem;
+    padding: 0.7rem 2rem;
     font-size: 1.2rem;
+    cursor: pointer;
+  }
+  .payment-button:hover {
+    background-color: black;
   }
 }
 

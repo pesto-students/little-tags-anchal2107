@@ -27,13 +27,18 @@ function MainContent() {
           path={ROUTES_CONST.SHIP_DETAILS}
           component={ShippingDetails}
         ></Route>
+        <Route
+          path={ROUTES_CONST.PRODUCT_SEARCH}
+          exact
+          component={ProductList}
+        ></Route>
         <Route path={ROUTES_CONST.PRODUCT_LIST} component={ProductList}></Route>
         <Route
           path={ROUTES_CONST.PRODUCT_DETAIL}
           exact
           component={Product}
         ></Route>
-        <Route path={ROUTES_CONST.CART} exact component={Cart}></Route>
+        <Route path={ROUTES_CONST.CART} exact component={Cart}></Route>        
         <Route path={ROUTES_CONST.LANDING} component={Home}></Route>
       </Switch>
     </div>

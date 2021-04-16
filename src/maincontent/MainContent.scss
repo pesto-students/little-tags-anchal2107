@@ -10,7 +10,7 @@
 .product-category-home {
   h2 {
     text-align: center;
-    margin-bottom: 0;
+    margin: 2rem 0 0;
     font-size: 2rem;
   }
   .grid-container {
@@ -24,13 +24,20 @@
   padding: 1rem;
   margin: 1rem;
   border-radius: 10px;
-  width: 300px;
-  height: 390px;
+  width: 23%;
+  height: 425px;
   cursor: pointer;
+  a {
+    text-decoration: none;
+    color: black;
+  }
   h3 {
     font-size: 1.5rem;
     margin-top: 10px;
     text-align: center;
+  }
+  img {
+    width: 100%;
   }
 }
 
