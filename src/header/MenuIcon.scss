@@ -3,7 +3,8 @@
     list-style: none;
     position: fixed;
     top: 0;
-    background: darkcyan;
+    background:transparentize($color: grey, $amount: 0.1);
+    
     left: 0;
     bottom: 0;
     height: 100vh;

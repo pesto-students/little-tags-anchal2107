@@ -1,11 +1,50 @@
 import "./ViewCurrentProfile";
-
+import '../style/Card.scss'
+import { useSelector } from "react-redux";
 const EditCurrentProfile = () => {
+  const profileData = useSelector((state) => state.profileReducer);
   return (
     <div>
-      <div className="container">
-        <h1>Edit Your Profile</h1>
+      <div className="card" style={{alignItems:"center",justifyContent:"center"}}>
+        <h1>Edit Your Profile :{profileData.firstName + " " + profileData.lastName}</h1>
         <hr />
+
+        <label >
+          <b>First Name</b>
+        </label>
+        <input
+          type="text"
+          placeholder="Enter First Name"
+          name="first name"
+          id="fname"
+          value={profileData.firstName}
+          required
+        />
+          <br/>
+            <label >
+          <b>Middle Name</b>
+        </label>
+                <input
+          type="text"
+          placeholder="Enter Middle Name"
+          name="Middle name"
+          id="fname"
+          value={profileData.middleName}
+          required
+        />
+            <br/>
+            <label >
+          <b>Last Name</b>
+        </label>
+                <input
+          type="text"
+          placeholder="Enter Last Name"
+          name="Lasr name"
+          id="fname"
+          value={profileData.lastName}
+          required
+        />
+        <br/>
 
         <label >
           <b>Email</b>
@@ -15,6 +54,7 @@ const EditCurrentProfile = () => {
           placeholder="Enter Email"
           name="email"
           id="email"
+          value={profileData.primaryEmail}
           required
         />
         <br/>
