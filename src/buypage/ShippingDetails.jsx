@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 import "./ShippingDetails.scss";
 
 function ShippingDetails() {
   return (
-    <>
+    <div className="app">
       <div className="shipping-details-container">
         <h1>Shipping Details</h1>
         <div className="form-input">
@@ -21,11 +22,13 @@ function ShippingDetails() {
             <label htmlFor="shipDefaultAddress">Set as default address</label>
           </span>
         </div>
-        <div className="payment-button-div">
-            <button value="Confirm Order" className="payment-button">Confirm Order</button>
-        </div>
+        <Link to="/confirm-order">
+          <div className="payment-button-div">
+              <button value="Confirm Order" className="payment-button">Confirm Order</button>
+          </div>
+        </Link>
       </div>
-    </>
+    </div>
   );
 }
 

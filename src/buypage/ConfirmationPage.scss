@@ -1,4 +1,4 @@
-.parent-container {
+.confirm-page-container {
   display: inline-flex;
   flex-direction: column;
   width: 26%;
@@ -27,16 +27,20 @@
   }
   .payment-button {
     align-self: center;
-    background-color: black;
+    background-color: #080808;
     color: white;
     border-radius: 10px;
-    padding: 1rem 2rem;
+    padding: 0.7rem 2rem;
     font-size: 1.2rem;
+    cursor: pointer;
+  }
+  .payment-button:hover {
+    background-color: black;
   }
 }
 
 @media screen and (max-width: 700px) {
-  .parent-container {
+  .confirm-page-container {
     width: 95%;
   }
 }

@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { GrClose } from "react-icons/gr";
 import * as actions from "../constant/actionTypes";
+import { Link } from "react-router-dom";
 import "./Cart.scss";
 
 function Cart() {
@@ -89,9 +90,11 @@ function Cart() {
                 <div className="col-6">Total Price</div>
                 <div className="col-6">${totalPrice}</div>
               </div>
-              <button type="button" className="checkout">
-                Checkout
-              </button>
+              <Link to="/ship-detail">
+                <button type="button" className="checkout">
+                  Checkout
+                </button>
+              </Link>
             </div>
           </div>
         </div>

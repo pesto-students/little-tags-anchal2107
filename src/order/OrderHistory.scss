@@ -1,0 +1,12 @@
+.order-history-container {
+  padding: 1.5rem 14rem;
+  h1 {
+    margin: 1rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .order-history-container {
+    padding: 1rem 0.5rem;
+  }
+}

@@ -1,0 +1,29 @@
+.order-card {
+  margin: 1rem;
+  padding: 1rem;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  justify-content: space-between;
+  align-items: center;
+  .order-description {
+    margin-left: 2rem;
+    h2,
+    h3 {
+      margin: 0.5rem;
+    }
+  }
+}
+.order-again {
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background: black;
+  color: white;
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 10px;
+}
+.mr-2 {
+  margin-right: 2rem;
+}

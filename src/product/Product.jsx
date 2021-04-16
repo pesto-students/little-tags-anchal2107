@@ -14,6 +14,7 @@ function Product() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const { product } = useSelector((state) => state.productsReducer);
+  const { title, price, description, image_carousel } = product;
 
   useEffect(() => {
     dispatch({ type: actions.PRODUCT, id });
@@ -37,14 +38,14 @@ function Product() {
     <>
       <div className="product-container">
         <div className="product-carousel-container">
-          <Carousel slides={product.image_carousel} />
+          <Carousel slides={image_carousel} />
         </div>
         <div className="product-info-container">
-          <h2>{product.title}</h2>
+          <h2>{title}</h2>
           <span>
-            <h3>$ {product.price}</h3>
+            <h3>$ {price}</h3>
           </span>
-          <p>{product.description}</p>
+          <p>{description}</p>
           <SizeComponent handleSizeCallback={handleSizeCallback} />
           <QuantityComponent handleQuantityCallback={handleQuantityCallback} />
           <CartComponent handleAddToCart={handleAddToCart} />

@@ -12,6 +12,8 @@ import ViewCurrentProfile from "../profile/ViewCurrentProfile";
 import EditCurrentProfile from "../profile/EditCurrentProfile";
 import Product from "../product/Product";
 import Cart from "../order/Cart";
+import OrderHistory from "../order/OrderHistory";
+import ThankYou from "../order/ThankYou";
 
 function MainContent() {
   return (
@@ -29,11 +31,16 @@ function MainContent() {
           path={ROUTES_CONST.SHIP_DETAILS}
           component={ShippingDetails}
         ></Route>
-                <Route
+        <Route
+          path={ROUTES_CONST.PRODUCT_SEARCH}
+          exact
+          component={ProductList}
+        ></Route>
+        <Route
           path={ROUTES_CONST.VIEW_CURRENT_PROFILE}
           component={ViewCurrentProfile}
         ></Route>
-            <Route
+        <Route
           path={ROUTES_CONST.EDIT_CURRENT_PROFILE}
           exact
           component={EditCurrentProfile}
@@ -44,7 +51,12 @@ function MainContent() {
           exact
           component={Product}
         ></Route>
-        <Route path={ROUTES_CONST.CART} exact component={Cart}></Route>
+        <Route path={ROUTES_CONST.CART} component={Cart}></Route>
+        <Route
+          path={ROUTES_CONST.ORDER_HISTORY}
+          component={OrderHistory}
+        ></Route>
+        <Route path={ROUTES_CONST.THANK_YOU} component={ThankYou}></Route>
         <Route path={ROUTES_CONST.LANDING} component={Home}></Route>
       </Switch>
     </div>
