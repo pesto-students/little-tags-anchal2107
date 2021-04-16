@@ -16,14 +16,15 @@ const ViewCurrentProfile = () => {
       <h1>My Name: {profileData.firstName}</h1>
       <p className="title">You Email : {profileData.primaryEmail}</p>
       <p>Gujarat University</p>
-      <a href="https://www.linkedin.com/in/anchal-agarwal-a9a94375/">
+      <a href="https://www.linkedin.com">
         <i className="fa fa-linkedin"></i>
       </a>
-      <a href="https://www.facebook.com/AnchalJainAgarwal/">
+      <a href="https://www.facebook.com">
         <i className="fa fa-facebook"></i>
       </a>
       <p>
         <button>Edit</button>
+        
       </p>
     </div>
   );
