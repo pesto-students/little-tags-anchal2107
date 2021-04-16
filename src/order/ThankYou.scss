@@ -1,0 +1,22 @@
+.thank-you {
+  margin: 3rem;
+  svg {
+    height: 200px;
+    width: 200px;
+  }
+  h1 {
+    margin: 2rem;
+  }
+  button {
+    border: none;
+    cursor: pointer;
+    outline: none;
+    background: black;
+    color: white;
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 10px;
+    width: 190px;
+  }
+}

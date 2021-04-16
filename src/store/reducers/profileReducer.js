@@ -26,6 +26,6 @@ const initialState = {
   ],
 };
 const profileReducer = (state = initialState, action) => {
-      return state;
+  return state;
 };
-export default profileReducer ;
+export default profileReducer;
