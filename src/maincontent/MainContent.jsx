@@ -8,6 +8,8 @@ import Error from "./Error";
 import ConfirmationPage from "../buypage/ConfirmationPage";
 import ShippingDetails from "../buypage/ShippingDetails";
 import ProductList from "../product/ProductList";
+import ViewCurrentProfile from "../profile/ViewCurrentProfile";
+import EditCurrentProfile from "../profile/EditCurrentProfile";
 import Product from "../product/Product";
 import Cart from "../order/Cart";
 
@@ -30,7 +32,16 @@ function MainContent() {
         <Route
           path={ROUTES_CONST.PRODUCT_SEARCH}
           exact
-          component={ProductList}
+          component={ProductList} 
+        ></Route>
+        <Route
+          path={ROUTES_CONST.VIEW_CURRENT_PROFILE}
+          component={ViewCurrentProfile}
+        ></Route>
+            <Route
+          path={ROUTES_CONST.EDIT_CURRENT_PROFILE}
+          exact
+          component={EditCurrentProfile}
         ></Route>
         <Route path={ROUTES_CONST.PRODUCT_LIST} component={ProductList}></Route>
         <Route
