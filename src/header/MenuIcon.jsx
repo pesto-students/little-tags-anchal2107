@@ -1,95 +1,49 @@
-import { FaBars } from "react-icons/fa";
-import { GrClose } from "react-icons/gr";
-import React, { useState } from "react";
-import { Routelink } from "./Routelink";
-import * as ROUTES_CONST from "../constant/Routes";
+import React from "react";
+import { NavLink } from "react-router-dom";
 import "./MenuIcon.scss";
 
-function MenuIcon(props) {
-  const [navbarOpen, setNavbarOpen] = useState(false);
-
-  const handleToggle = () => {
-    setNavbarOpen(!navbarOpen);
-     props.onHambergerOpen(!navbarOpen);
+const MenuIcon = () => {
+  const handleChangeNavbarIcon = () => {
+    if (document.getElementById("navbarIcon").checked) {
+      document.getElementById("mainContent").classList.add("disabled");
+    } else {
+      document.getElementById("mainContent").classList.remove("disabled");
+    }
   };
-
   return (
-    <>
-      <nav className="navBar">
-        <button onClick={handleToggle}>{navbarOpen ? <GrClose /> : <FaBars />}</button>
-
-        <div
-          id="OpenMenu"
-          className={`menuNav ${navbarOpen ? " showMenu" : ""}`}
-        >
-          <div id="links">
-            <h3>Categories</h3>
-            <nav>
-              <Routelink
-                routeurl={ROUTES_CONST.ABOUT}
-                linkname="About"
-              ></Routelink>
-              <Routelink
-                routeurl={ROUTES_CONST.PRODUCT_LIST}
-                linkname="Products"
-              ></Routelink>
-                <Routelink
-                routeurl={ROUTES_CONST.VIEW_CURRENT_PROFILE}
-                linkname="Your Profile"
-              ></Routelink>
-                 <Routelink
-                routeurl={ROUTES_CONST.EDIT_CURRENT_PROFILE}
-                linkname="Eidt Profile"
-              ></Routelink>
-              <Routelink
-                routeurl={ROUTES_CONST.HOME}
-                linkname="Home"
-              ></Routelink>
-            </nav>
-          </div>
-          <div id="links">
-            <h3>Categories</h3>
-            <nav>
-              <Routelink
-                routeurl={ROUTES_CONST.ABOUT}
-                linkname="About"
-              ></Routelink>
-              <Routelink
-                routeurl={ROUTES_CONST.CONTACT_US}
-                linkname="Contact Us"
-              ></Routelink>
-              <Routelink
-                routeurl={ROUTES_CONST.HOME}
-                linkname="Home"
-              ></Routelink>
-            </nav>
-          </div>
-          <div id="links">
-            <h3>Categories</h3>
-            <nav>
-              <Routelink
-                routeurl={ROUTES_CONST.ABOUT}
-                linkname="About"
-              ></Routelink>
-              <Routelink
-                routeurl={ROUTES_CONST.CONTACT_US}
-                linkname="Contact Us"
-              ></Routelink>
-              <Routelink
-                routeurl={ROUTES_CONST.HOME}
-                linkname="Home"
-              ></Routelink>
-            </nav>
-          </div>
-        </div>
-
-        <div
-          className="menu-icon"
-          onClick={() => {}}
-        ></div>
-      </nav>
-    </>
+    <div className="menu-toggle">
+      <input
+        id="navbarIcon"
+        type="checkbox"
+        onChange={handleChangeNavbarIcon}
+      />
+      <span></span>
+      <span></span>
+      <span></span>
+      <ul className="menu">
+        <h1>Categories</h1>
+        <NavLink to={"/products/mens"}>
+          <li>Men's Clothing</li>
+        </NavLink>
+        <NavLink to={"/products/womens"}>
+          <li>Women's Clothing</li>
+        </NavLink>
+        <NavLink to={"/products/jewel"}>
+          <li>Jewellery</li>
+        </NavLink>
+        <NavLink to={"/products/electronics"}>
+          <li>Electronics</li>
+        </NavLink>
+        <hr />
+        <NavLink to={"/order-history"}>
+          <li>Past Orders</li>
+        </NavLink>
+        <NavLink to={"/"}>
+          <div className="hero-button log-out">Log Out</div>
+        </NavLink>
+      </ul>
+    </div>
   );
-}
+};
 
 export default MenuIcon;

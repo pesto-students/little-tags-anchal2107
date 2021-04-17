@@ -2,15 +2,17 @@ import MenuIcon from "./MenuIcon";
 import CartIcon from "./CartIcon";
 import ProfileIcon from "./ProfileIcon";
 import SearchFilter from "./SearchFilter";
+import { NavLink } from "react-router-dom";
 import "./Header.scss";
 
-
-function Header(props) {
- return (
+function Header() {
+  return (
     <div className="header">
-      <MenuIcon onHambergerOpen={props.onHambergerOpenFunFromApp}/>
+      <MenuIcon />
       <div className="logo">
-        <h1>Little Tags</h1>
+        <NavLink to={"/"}>
+          <h1>Little Tags</h1>
+        </NavLink>
       </div>
       <SearchFilter />
       <ProfileIcon />
