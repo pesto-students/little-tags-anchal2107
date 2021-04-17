@@ -1,7 +1,8 @@
 .header {
   display: flex;
   align-items: center;
-  background-color: skyblue;
+  background-color: black;
+  color: white;
   min-height: 14vh;
   width: 100%;
 }
@@ -13,6 +14,11 @@
 }
 .logo {
   margin: 0 1.5rem;
+  cursor: pointer;
+  a {
+    color: white;
+    text-decoration: none;
+  }
 }
 .cart-icon {
   align-items: center;
@@ -21,6 +27,7 @@
   svg {
     height: 2.5em;
     width: 2.5em;
+    color: white;
   }
   .badge {
     position: relative;

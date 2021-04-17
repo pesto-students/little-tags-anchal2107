@@ -7,10 +7,10 @@ function Categories() {
       <h2>Categories</h2>
       <div className="footer-category-links">
       <nav>
-        <NavLink to={`/products/mens`}>Men's Clothing</NavLink>
-        <NavLink to={`/products/womens`}>Women's Clothing</NavLink>
-        <NavLink to={`/products/jewel`}>Jewellery</NavLink>
-        <NavLink to={`/products/electronics`}>Electronics</NavLink>
+        <NavLink to={"/products/mens"}>Men's Clothing</NavLink>
+        <NavLink to={"/products/womens"}>Women's Clothing</NavLink>
+        <NavLink to={"/products/jewel"}>Jewellery</NavLink>
+        <NavLink to={"/products/electronics"}>Electronics</NavLink>
       </nav>  
       </div>
     </div>

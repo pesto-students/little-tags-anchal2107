@@ -17,7 +17,7 @@ import ThankYou from "../order/ThankYou";
 
 function MainContent() {
   return (
-    <div className="main-content">
+    <div id="mainContent" className="main-content">
       <Switch>
         <Route path={ROUTES_CONST.ERROR} component={Error}></Route>
         <Route path={ROUTES_CONST.HOME} component={Home}></Route>
@@ -33,7 +33,6 @@ function MainContent() {
         ></Route>
         <Route
           path={ROUTES_CONST.PRODUCT_SEARCH}
-          exact
           component={ProductList}
         ></Route>
         <Route
@@ -42,7 +41,6 @@ function MainContent() {
         ></Route>
         <Route
           path={ROUTES_CONST.EDIT_CURRENT_PROFILE}
-          exact
           component={EditCurrentProfile}
         ></Route>
         <Route path={ROUTES_CONST.PRODUCT_LIST} component={ProductList}></Route>

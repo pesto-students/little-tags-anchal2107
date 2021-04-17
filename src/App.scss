@@ -50,6 +50,10 @@
 .font-bold {
   font-weight: 600;
 }
+.disabled {
+  opacity: 0.25;
+  pointer-events: none;
+}
 
 @media all and (max-width: 800px) {
   .main {
