@@ -50,6 +50,23 @@
   transform: scale(1.05);
 }
 
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+  &:hover {
+    background-color: #717171;
+  }
+}
+.dot.active {
+  background-color: #717171;
+}
+
 @media screen and (max-width: 700px) {
   .left-arrow {
     left: -75%;

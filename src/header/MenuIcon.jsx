@@ -22,10 +22,10 @@ const MenuIcon = () => {
       <span></span>
       <ul className="menu">
         <h1>Categories</h1>
-        <NavLink to={"/products/mens"}>
+        <NavLink to={"/products/mens-clothing"}>
           <li>Men's Clothing</li>
         </NavLink>
-        <NavLink to={"/products/womens"}>
+        <NavLink to={"/products/women-clothing"}>
           <li>Women's Clothing</li>
         </NavLink>
         <NavLink to={"/products/jewel"}>
