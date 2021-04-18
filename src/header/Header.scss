@@ -55,12 +55,16 @@
 .search-filter {
   display: flex;
   align-items: center;
+  background: white;
+  color: black;
+  border-radius: 5pc;
+  padding-left: 1rem;
   input {
     width: 50vw;
     height: 8vh;
-    border-radius: 5px;
-    border-color: lightgray;
-    padding: 1rem;
+    border: none;
+    background: transparent;
+    padding: 1rem 0 1rem 0.5rem;
     font-size: 1.5rem;
   }
   svg {
@@ -74,6 +78,9 @@
 @media only screen and (max-width: 700px) {
   .search-filter {
     justify-content: center;
+    order: 1;
+    flex: 1 0;
+    margin: 1rem;
     input {
       width: 85%;
     }
@@ -82,9 +89,6 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-  }
-  .search-filter {
-    order: 1;
-    flex: 1 0 100%;
+    padding: 0.5rem 0 0;
   }
 }

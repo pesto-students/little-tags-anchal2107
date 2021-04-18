@@ -8,29 +8,30 @@ const ENTER_KEYCHAR_CODE = 13;
 function SearchFilter() {
   const [searchText, setSearchText] = useState("");
   const dispatch = useDispatch();
+  const handleSearchOnClick = () => {
+    dispatch({
+      type: actions.FETCH_PRODUCT_BY_SEARCH_TEXT,
+      payload: searchText,
+    });
+    window.location.href = `/products/${searchText}`;
+    setSearchText("");
+  }
   const handleSearchKeyPress = (e) => {
     if (e.charCode === ENTER_KEYCHAR_CODE) {
-      dispatch({
-        type: actions.FETCH_PRODUCT_BY_SEARCH_TEXT,
-        payload: searchText,
-      });
-      window.location.href = `/products/${searchText}`;
-      setSearchText("");
+      handleSearchOnClick();
     }
   };
 
   return (
-    // <Link to={`/products/${searchText}`} onKeyPress={handleSearchKeyPress}>
-      <div className="search-filter">
-        <input
-          type="search"
-          placeholder="Search here..."
-          onChange={(e) => setSearchText(e.target.value)}
-          onKeyPress={handleSearchKeyPress}
-        />
-        <FaSearch />
-      </div>
-    // </Link>
+    <div className="search-filter">
+      <input
+        type="search"
+        placeholder="Search here..."
+        onChange={(e) => setSearchText(e.target.value)}
+        onKeyPress={handleSearchKeyPress}
+      />
+      <FaSearch onClick={handleSearchOnClick}/>
+    </div>
   );
 }
 
