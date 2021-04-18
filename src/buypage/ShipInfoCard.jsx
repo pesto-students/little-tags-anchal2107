@@ -1,14 +1,13 @@
+import React from "react";
+import { useSelector } from "react-redux";
+
 function ShipInfoCard() {
+  const { name, address, phoneNo } = useSelector((state) => state.cartReducer);
   return (
     <div className="ship-info-card">
-      <h3>Vishal Donga</h3>
-      <p>
-        Address text Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Quo minus, esse quod ratione impedit adipisci, commodi eveniet
-        dignissimos facere praesentium nostrum. Ea error mollitia totam illum ab
-        natus, a expedita.
-      </p>
-      <p>(+91) 9658741254</p>
+      <h3>{name}</h3>
+      <p>{address}</p>
+      <p>{phoneNo}</p>
     </div>
   );
 }

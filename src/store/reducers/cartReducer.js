@@ -4,6 +4,9 @@ const initialState = {
   products: [],
   totalPrice: 0,
   totalQuantity: 0,
+  name: "",
+  phoneNo: "",
+  address: "",
 };
 
 const cartReducer = (state = initialState, action) => {
@@ -74,6 +77,14 @@ const cartReducer = (state = initialState, action) => {
         totalPrice:
           state.totalPrice - fetchProduct.price * fetchProduct.quantity,
         totalQuantity: state.totalQuantity - fetchProduct.quantity,
+      };
+    case actions.ADD_SHIP_DETAILS:
+      const { name, address, phoneNo } = action.payload;
+      return {
+        ...state,
+        name,
+        address,
+        phoneNo,
       };
     default:
       return state;
