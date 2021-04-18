@@ -141,7 +141,7 @@
   margin: 2rem;
 }
 
-@media (max-width: 800px) {
+@media screen and (max-width: 600px) {
   .cart-div-container {
     flex-direction: column;
   }
@@ -182,3 +182,13 @@
     margin: 0;
   }
 }
+@media screen and (max-width: 600px) {
+  .shopping-cart{
+    .quantity {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+

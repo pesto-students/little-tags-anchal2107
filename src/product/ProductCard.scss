@@ -33,8 +33,17 @@
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 600px) {
   .product-card-container {
     width: 42%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .product-card-container {
+    width: 40%;
+    height: 240px;
+    img {
+      height: 160px;
+    }
   }
 }
