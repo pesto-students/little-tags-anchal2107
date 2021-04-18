@@ -1,18 +1,33 @@
+import PropTypes from "prop-types";
 import "./RadioButton.scss";
 
-const RadioButton = (props) => {
+const RadioButton = ({ id, changed, value, isSelected, label }) => {
   return (
     <div className="radio-button">
       <input
-        id={props.id}
-        onChange={props.changed}
-        value={props.value}
+        id={id}
+        onChange={changed}
+        value={value}
         type="radio"
-        checked={props.isSelected}
+        checked={isSelected}
       />
-      <label htmlFor={props.id}>{props.label}</label>
+      <label htmlFor={id}>{label}</label>
     </div>
   );
 };
 
 export default RadioButton;
+
+RadioButton.propTypes = {
+  changed: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+  isSelected: PropTypes.bool.isRequired,
+  label: PropTypes.string.isRequired,
+};
+
+RadioButton.defaultProps = {
+  changed: () => {},
+  value: "",
+  isSelected: false,
+  label: "",
+};
