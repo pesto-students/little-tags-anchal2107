@@ -28,6 +28,7 @@ function ShippingDetails() {
             id="shipPersonName"
             placeholder="Enter Name"
             onChange={(e) => setName(e.target.value)}
+            required
           />
         </div>
         <div className="form-input">
@@ -37,6 +38,7 @@ function ShippingDetails() {
             id="shipPhoneNo"
             placeholder="Enter Phone No."
             onChange={(e) => setPhoneNo(e.target.value)}
+            required
           />
         </div>
         <div className="form-input">
@@ -46,6 +48,7 @@ function ShippingDetails() {
             id="shipAddress"
             placeholder="Enter Address"
             onChange={(e) => setAddress(e.target.value)}
+            required
           />
           <span>
             <input type="checkbox" id="shipDefaultAddress" checked />

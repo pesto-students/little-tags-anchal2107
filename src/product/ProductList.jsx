@@ -11,10 +11,10 @@ const ProductList = () => {
 
   const searchTitle = useCallback(() => {
     switch (search) {
-      case "mens":
+      case "mens-clothing":
         setCategoryName("Men's Clothing");
         break;
-      case "womens":
+      case "women-clothing":
         setCategoryName("Women's Clothing");
         break;
       case "jewel":

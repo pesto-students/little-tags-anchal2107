@@ -9,12 +9,12 @@ function ProductInfo() {
         <CategoryCard
           image="https://source.unsplash.com/TwuPHbcQ57w"
           categoryName="Men's clothing"
-          category="mens"
+          category="mens-clothing"
         />
         <CategoryCard
           image="https://source.unsplash.com/Kv5WiqG_3NA"
           categoryName="Women's clothing"
-          category="womens"
+          category="women-clothing"
         />
         <CategoryCard
           image="https://source.unsplash.com/s8SJ8pmxPDA"
