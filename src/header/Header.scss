@@ -75,7 +75,7 @@
   }
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 600px) {
   .search-filter {
     justify-content: center;
     order: 1;
@@ -90,5 +90,30 @@
     flex-wrap: wrap;
     flex-direction: row;
     padding: 0.5rem 0 0;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .logo {
+    margin: 0;
+  }
+  .cart-icon {
+    margin: 0;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .menu-toggle {
+    margin: 0 1rem;
+  }
+  .logo {
+    font-size: 0.7rem;
+  }
+  .search-filter {
+    order: 4;
+  }
+  .profile-icon {
+    order: 3;
+  }
+  .cart-icon-container {
+    order: 5;
   }
 }

@@ -5,14 +5,14 @@ import { TiShoppingCart } from "react-icons/ti";
 function CartIcon() {
   const { totalQuantity } = useSelector((state) => state.cartReducer);
   return (
-    <>
+    <div className="cart-icon-container">
       <Link to="/cart">
         <div className="cart-icon">
           <TiShoppingCart />
           <span className="badge">{totalQuantity}</span>
         </div>
       </Link>
-    </>
+    </div>
   );
 }
 
