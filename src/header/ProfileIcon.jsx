@@ -1,14 +1,16 @@
 import PropTypes from "prop-types";
-
+import Login from "../profile/login";
+//import SignUpModal from './authentication/SignUpModal';
 function ProfileIcon({ imagePath, username }) {
   const isLoggedIn = false;
   if (!isLoggedIn) {
     return (
       <>
         <div className="profile-icon" onClick={() => {}}>
-          {/* <SignUpModal /> */}
+           {/* <SignUpModal />  */}
           <h3>Sign In / Sign Up</h3>
         </div>
+        <Login></Login>
       </>
     );
   }

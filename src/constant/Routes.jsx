@@ -13,3 +13,5 @@ export const VIEW_CURRENT_PROFILE = "/your-profile";
 export const EDIT_CURRENT_PROFILE = "/edit-profile";
 export const ORDER_HISTORY = "/order-history";
 export const THANK_YOU = "/thank-you";
+export const SIGN_IN = "/signin";
+export const SIGN_UP = "/signup";

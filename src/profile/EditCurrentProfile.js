@@ -1,52 +1,81 @@
 import "./ViewCurrentProfile";
-import '../style/Card.scss'
+import "../style/Card.scss";
 import { useSelector } from "react-redux";
+import {
+  InsertOrUpdate,
+  InsertScalar,
+  SelectAll,
+  SelectWithKeyAndValue,
+} from "../utils/firebase/FirebaseCRUDOperations";
+import { GoogleSignIn } from "../utils/socialAuthentication/GoogleSignIn";
 const EditCurrentProfile = () => {
   const profileData = useSelector((state) => state.profileReducer);
+  const SaveToFirebaseOnClick = () => {
+   // GoogleSignIn();
+    // callFirebase("9", "Laptops");
+  };
+
+  const callFirebase = (card, product) => {
+    InsertOrUpdate("temNode", { quantity: card, product: product });
+    console.log("insert called");
+
+    let result = InsertScalar("temNode", {
+      quantity: card + "221",
+      product: product,
+    });
+    console.log(`insert called salacr ${JSON.stringify(result)}`);
+
+    let selectall = SelectAll("temNode");
+    console.log(` slect all ${JSON.stringify(selectall)}`);
+
+    let selectata = SelectWithKeyAndValue("temNode", "quantity", card + "221");
+    console.log(` select data ${selectata}`);
+  };
+
   return (
     <div>
-      <div className="card" style={{alignItems:"center",justifyContent:"center"}}>
-        <h1>Edit Your Profile :{profileData.firstName + " " + profileData.lastName}</h1>
+      <div
+        className="card"
+        style={{ alignItems: "center", justifyContent: "center" }}
+      >
+        <h1>
+          Edit Your Profile :
+          {profileData.firstName + " " + profileData.lastName}
+        </h1>
         <hr />
 
-        <label >
+        <label>
           <b>First Name</b>
         </label>
         <input
           type="text"
           placeholder="Enter First Name"
           name="first name"
-          id="fname"
-          value={profileData.firstName}
           required
         />
-          <br/>
-            <label >
+        <br />
+        <label>
           <b>Middle Name</b>
         </label>
-                <input
+        <input
           type="text"
           placeholder="Enter Middle Name"
           name="Middle name"
-          id="fname"
-          value={profileData.middleName}
           required
         />
-            <br/>
-            <label >
+        <br />
+        <label>
           <b>Last Name</b>
         </label>
-                <input
+        <input
           type="text"
           placeholder="Enter Last Name"
           name="Lasr name"
-          id="fname"
-          value={profileData.lastName}
           required
         />
-        <br/>
+        <br />
 
-        <label >
+        <label>
           <b>Email</b>
         </label>
         <input
@@ -54,12 +83,11 @@ const EditCurrentProfile = () => {
           placeholder="Enter Email"
           name="email"
           id="email"
-          value={profileData.primaryEmail}
           required
         />
-        <br/>
+        <br />
 
-        <label >
+        <label>
           <b>Password</b>
         </label>
         <input
@@ -69,8 +97,8 @@ const EditCurrentProfile = () => {
           id="psw"
           required
         />
-   <br/>
-        <label >
+        <br />
+        <label>
           <b>Repeat Password</b>
         </label>
         <input
@@ -80,11 +108,10 @@ const EditCurrentProfile = () => {
           id="psw-repeat"
           required
         />
-        <hr /><br/>
-        <button>Save</button>
+        <hr />
+        <br />
+        <button onClick={SaveToFirebaseOnClick}>Save</button>
       </div>
-
-     
     </div>
   );
 };

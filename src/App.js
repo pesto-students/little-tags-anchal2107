@@ -4,6 +4,7 @@ import MainContent from "./maincontent/MainContent";
 import Header from "./header/Header";
 import Footer from "./footer/Footer";
 import { BrowserRouter } from "react-router-dom";
+import withAuthentication from '../src/session//Authentications';
 
 
 function App() {
@@ -31,4 +32,5 @@ function App() {
   );
 }
 
+//export default withAuthentication(App);
 export default App;
