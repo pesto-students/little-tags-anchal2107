@@ -14,7 +14,8 @@ import Product from "../product/Product";
 import Cart from "../order/Cart";
 import OrderHistory from "../order/OrderHistory";
 import ThankYou from "../order/ThankYou";
-
+import SignInGoogle from "../utils/socialAuthentication/SignInGoogle";
+import SignUpModal from "../header/authentication/SignUpModal";
 function MainContent() {
   return (
     <div className="main-content">
@@ -26,6 +27,11 @@ function MainContent() {
         <Route
           path={ROUTES_CONST.ORDER_CONFIRMATION}
           component={ConfirmationPage}
+        ></Route>
+        <Route path={ROUTES_CONST.SIGN_IN} component={SignInGoogle}></Route>
+        <Route
+          path={ROUTES_CONST.SIGN_IN_SIGN_UP}
+          component={SignUpModal}
         ></Route>
         <Route
           path={ROUTES_CONST.SHIP_DETAILS}

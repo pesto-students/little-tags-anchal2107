@@ -15,3 +15,4 @@ export const ORDER_HISTORY = "/order-history";
 export const THANK_YOU = "/thank-you";
 export const SIGN_IN = "/signin";
 export const SIGN_UP = "/signup";
+export const SIGN_IN_SIGN_UP = "/signin-signuup";

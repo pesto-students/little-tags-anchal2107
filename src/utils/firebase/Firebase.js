@@ -31,14 +31,14 @@ class FirebaseClass {
     this.googleAuthProvider = new firebaseApp.auth.GoogleAuthProvider();
   }
   doCreateUserWithEmailAndPassword = (email, password) => {
-    this.auth.doCreateUserWithEmailAndPassword(email, password);
+    this.authentication.doCreateUserWithEmailAndPassword(email, password);
   };
   doSignInWithEmailAndPassword = (email, password) => {
-    this.auth.doSignInWithEmailAndPassword(email, password);
+    this.authentication.doSignInWithEmailAndPassword(email, password);
   };
-  doGoogleSignIn = () => this.auth.signInWithPopup(this.googleAuthProvider);
+  doGoogleSignIn = () => this.authentication.signInWithPopup(this.googleAuthProvider);
 
-  SignOut = () => this.auth.SignOut();
+  SignOut = () => this.authentication.SignOut();
 
   FirebaseDBRef = (refPath) => this.firebaseDatabase.ref(refPath);
 

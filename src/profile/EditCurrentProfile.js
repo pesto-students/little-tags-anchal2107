@@ -7,7 +7,7 @@ import {
   SelectAll,
   SelectWithKeyAndValue,
 } from "../utils/firebase/FirebaseCRUDOperations";
-import { GoogleSignIn } from "../utils/socialAuthentication/GoogleSignIn";
+//import { GoogleSignIn } from "../utils/socialAuthentication/GoogleSignIn";
 const EditCurrentProfile = () => {
   const profileData = useSelector((state) => state.profileReducer);
   const SaveToFirebaseOnClick = () => {
