@@ -19,6 +19,7 @@ function ShippingDetails() {
 
   return (
     <div className="app">
+      <form action="" onSubmit={()=>{}}>
       <div className="shipping-details-container">
         <h1>Shipping Details</h1>
         <div className="form-input">
@@ -57,12 +58,13 @@ function ShippingDetails() {
         </div>
         <Link to="/confirm-order">
           <div className="payment-button-div">
-            <button value="Confirm Order" className="payment-button" onClick={handleConfirmOrderClick}>
+            <button value="Confirm Order" type="submit" className="payment-button" onClick={handleConfirmOrderClick}>
               Confirm Order
             </button>
           </div>
         </Link>
       </div>
+      </form>
     </div>
   );
 }
