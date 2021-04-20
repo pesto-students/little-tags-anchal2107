@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { FaSearch } from "react-icons/fa";
+import { useHistory  } from "react-router-dom";
 import * as actions from "../constant/actionTypes";
 
 const ENTER_KEYCHAR_CODE = 13;
@@ -8,12 +9,14 @@ const ENTER_KEYCHAR_CODE = 13;
 function SearchFilter() {
   const [searchText, setSearchText] = useState("");
   const dispatch = useDispatch();
+  const history = useHistory();
+
   const handleSearchOnClick = () => {
     dispatch({
       type: actions.FETCH_PRODUCT_BY_SEARCH_TEXT,
       payload: searchText,
     });
-    window.location.href = `/products/${searchText}`;
+    history.push(`/products/${searchText}`);
     setSearchText("");
   }
   const handleSearchKeyPress = (e) => {
