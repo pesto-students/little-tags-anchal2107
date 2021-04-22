@@ -26,6 +26,23 @@ class Firebase {
 
   user = (uid) => this.db.ref(`/users/${uid}`);
 
+  //To Convert second to date
+  // function toDateTime(secs) {
+  //   var t = new Date(1970, 0, 1);
+  //   t.setSeconds(secs);
+  //   return t;
+  // }
+
+  setOrderData = (uid, products) => {
+    //Using time stamp as order id
+    const currentTimeStamp = Math.floor(Date.now() / 1000);
+    this.db.ref(`/users/${uid}/orders/${currentTimeStamp}/`).set(products);
+  }
+
+  setDefaultAddress = (uid, address) => {
+    this.db.ref(`/users/${uid}/defaultAddress/`).set(address);
+  }
+
   doSignOut = () => this.auth.signOut();
 
   onAuthChangeListener = (next, fallback = () => {}) => {
