@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { GrClose } from "react-icons/gr";
 import * as actions from "../constant/actionTypes";
+import withAuthorization from "./../session/withAuthorization";
 import { Link } from "react-router-dom";
 import "./Cart.scss";
 
@@ -105,4 +106,4 @@ function Cart() {
   );
 }
 
-export default Cart;
+export default withAuthorization(Cart);
