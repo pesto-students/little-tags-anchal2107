@@ -34,6 +34,7 @@
       "react-hooks"
     ],
     "rules": {
+      "import/no-unresolved": "warn",
       "no-unused-vars": "warn",
       "no-var": "warn",
       "no-return-assign": "warn",
@@ -45,7 +46,10 @@
       "max-statements-per-line": "warn",
       "no-duplicate-imports": "warn",
       "prefer-const": "warn",
-      "no-negated-condition": "warn"
+      "no-negated-condition": "warn",
+      "no-case-declarations":"warn",
+      "import/extensions":"warn",
+      "radix":"warn"
     }
   },
   "browserslist": {
