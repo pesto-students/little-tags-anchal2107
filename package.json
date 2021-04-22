@@ -22,35 +22,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lint": "eslint src"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
-      "kentcdodds"
-    ],
-    "plugins": [
-      "react",
-      "react-hooks"
-    ],
-    "rules": {
-      "import/no-unresolved": "warn",
-      "no-unused-vars": "warn",
-      "no-var": "warn",
-      "no-return-assign": "warn",
-      "no-shadow": "warn",
-      "consistent-return": "warn",
-      "no-nested-ternary": "warn",
-      "no-unneeded-ternary": "warn",
-      "import/no-duplicates": "warn",
-      "max-statements-per-line": "warn",
-      "no-duplicate-imports": "warn",
-      "prefer-const": "warn",
-      "no-negated-condition": "warn",
-      "no-case-declarations":"warn",
-      "import/extensions":"warn",
-      "radix":"warn"
-    }
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "browserslist": {
     "production": [
@@ -64,7 +42,5 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "eslint-config-kentcdodds": "^18.0.0"
-  }
+  "devDependencies": {}
 }
