@@ -27,12 +27,12 @@ function Product() {
     });
   };
 
-  const handleQuantityCallback = (quantity) => {
-    setQuantity(quantity);
+  const handleQuantityCallback = (quantities) => {
+    setQuantity(quantities);
   };
 
-  const handleSizeCallback = (size) => {
-    setSize(size);
+  const handleSizeCallback = (selectedSize) => {
+    setSize(selectedSize);
   };
   return (
     <div className="product-container">

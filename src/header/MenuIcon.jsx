@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
+import { resetAuthUser } from "../actions";
 import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import FirebaseContext from "./../firebase/FirebaseContext";
 import "./MenuIcon.scss";
 
 const MenuIcon = () => {
+  const firebase = useContext(FirebaseContext);
+  const dispatch = useDispatch();
   const handleChangeNavbarIcon = () => {
     if (document.getElementById("navbarIcon").checked) {
       document.getElementById("mainContent").classList.add("disabled");
     } else {
       document.getElementById("mainContent").classList.remove("disabled");
     }
+  };
+  const handleSignOut = () => {
+    firebase.doSignOut();
+    dispatch(resetAuthUser());
   };
   return (
     <div className="menu-toggle">
@@ -38,9 +47,9 @@ const MenuIcon = () => {
         <NavLink to={"/order-history"}>
           <li>Past Orders</li>
         </NavLink>
-        <NavLink to={"/"}>
-          <div className="hero-button log-out">Log Out</div>
-        </NavLink>
+        <div className="hero-button log-out" onClick={handleSignOut}>
+          Log Out
+        </div>
       </ul>
     </div>
   );

@@ -16,7 +16,7 @@ function PaymentCard() {
     name: "Little Tags",
     description: "Your all shopping needs",
     image: "https://cdn.razorpay.com/logos/7K3b6d18wHwKzL_medium.png",
-    handler: function (response) {
+    handler: function handler(response) {
       //   const data = {
       //     orderCreationId: order_id,
       //     razorpayPaymentId: response.razorpay_payment_id,
@@ -44,7 +44,7 @@ function PaymentCard() {
       window.location.href = `/thank-you`;
       return;
     }
-    var rzp1 = new window.Razorpay(options);
+    const rzp1 = new window.Razorpay(options);
     rzp1.open();
   };
 
