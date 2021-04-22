@@ -44,7 +44,7 @@ function PaymentCard() {
       window.location.href = `/thank-you`;
       return;
     }
-    var rzp1 = new window.Razorpay(options);
+    const rzp1 = new window.Razorpay(options);
     rzp1.open();
   };
 

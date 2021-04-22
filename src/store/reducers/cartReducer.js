@@ -33,10 +33,10 @@ const cartReducer = (state = initialState, action) => {
       }
     case actions.INCRESE_QUANTITY:
       fetchProduct = state.products.find(
-        (product) => product.id === action.payload
+        (p) => p.id === action.payload
       );
       index = state.products.findIndex(
-        (product) => product.id === action.payload
+        (p) => p.id === action.payload
       );
       fetchProduct.quantity += 1;
       state.products[index] = fetchProduct;
@@ -47,10 +47,10 @@ const cartReducer = (state = initialState, action) => {
       };
     case actions.DECRESE_QUANTITY:
       fetchProduct = state.products.find(
-        (product) => product.id === action.payload
+        (p) => p.id === action.payload
       );
       index = state.products.findIndex(
-        (product) => product.id === action.payload
+        (p) => p.id === action.payload
       );
       if (fetchProduct.quantity > 1) {
         fetchProduct.quantity -= 1;
@@ -65,11 +65,11 @@ const cartReducer = (state = initialState, action) => {
       }
     case actions.REMOVE_FROM_CART:
       fetchProduct = state.products.find(
-        (product) => product.id === action.payload
+        (p) => p.id === action.payload
       );
 
       const filteredProduct = state.products.filter(
-        (product) => product.id !== action.payload
+        (p) => p.id !== action.payload
       );
       return {
         ...state,
