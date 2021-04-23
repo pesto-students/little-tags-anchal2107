@@ -5,7 +5,6 @@ function SizeComponent({ handleSizeCallback }) {
   const handleSizeChange = (e) => {
     handleSizeCallback(e.target.value);
   };
-
   return (
     <>
       <div className="size align-left">
