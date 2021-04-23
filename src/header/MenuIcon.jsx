@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { resetAuthUser } from "../actions";
+import * as actions from "./../constant/actionTypes";
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import FirebaseContext from "./../firebase/FirebaseContext";
@@ -18,6 +19,10 @@ const MenuIcon = () => {
   const handleSignOut = () => {
     firebase.doSignOut();
     dispatch(resetAuthUser());
+    dispatch({
+      type: actions.RESET_CART,
+      payload: null,
+    });
   };
   return (
     <div className="menu-toggle">
