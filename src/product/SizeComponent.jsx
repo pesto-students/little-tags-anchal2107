@@ -18,7 +18,6 @@ function SizeComponent({ handleSizeCallback }) {
               name="size"
               value="XS"
               onChange={handleSizeChange}
-              checked
             />
             <label htmlFor="xs">
               <span>XS</span>
@@ -43,6 +42,7 @@ function SizeComponent({ handleSizeCallback }) {
               name="size"
               value="M"
               onChange={handleSizeChange}
+              defaultChecked
             />
             <label htmlFor="m">
               <span>M</span>
