@@ -15,7 +15,7 @@ function App() {
       <BrowserRouter>
         {/* {!!localStorage.getItem("showModal") ? <SignUpModal show={true}/> : <SignUpModal show={false}/>} */}
         <header className="header">
-          <Header />
+          <Header authUser={authUser}/>
         </header>
         <main className="main">
           <MainContent />
