@@ -26,6 +26,26 @@ class Firebase {
 
   user = (uid) => this.db.ref(`/users/${uid}`);
 
+  setOrderData = (uid, products) => {
+    //Using time stamp as order id
+    const currentTimeStamp = Math.floor(Date.now() / 1000);
+    this.db.ref(`/users/${uid}/orders/${currentTimeStamp}/`).set(products);
+  };
+
+  getOrderData = async (uid) => {
+    let ref = this.db.ref(`/users/${uid}/orders/`);
+    return await ref.once("value");
+  };
+
+  setDefaultAddress = (uid, address) => {
+    this.db.ref(`/users/${uid}/defaultAddress/`).set(address);
+  };
+
+  getDefaultAddress = async (uid) => {
+    let ref = this.db.ref(`/users/${uid}/defaultAddress/`);
+    return await ref.once("value");
+  };
+
   doSignOut = () => this.auth.signOut();
 
   onAuthChangeListener = (next, fallback = () => {}) => {
