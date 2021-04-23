@@ -13,11 +13,12 @@ function SignUpModal() {
     firebase
       .doGoogleSignIn()
       .then((authUser) => {
-        return firebase.user(authUser.user.uid).set({
-          email: authUser.user.email,
-          username: authUser.user.displayName,
-          roles: {},
-        });
+        if (authUser.additionalUserInfo.isNewUser) {
+          return firebase.user(authUser.user.uid).set({
+            email: authUser.user.email,
+            username: authUser.user.displayName,
+          });
+        }
       })
       .then(() => {
         history.goBack();
@@ -30,11 +31,12 @@ function SignUpModal() {
     firebase
       .doFacebookSignIn()
       .then((authUser) => {
-        return firebase.user(authUser.user.uid).set({
-          email: authUser.user.email,
-          username: authUser.user.displayName,
-          roles: {},
-        });
+        if (authUser.additionalUserInfo.isNewUser) {
+          return firebase.user(authUser.user.uid).set({
+            email: authUser.user.email,
+            username: authUser.user.displayName,
+          });
+        }
       })
       .then(() => {
         history.goBack();

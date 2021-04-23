@@ -89,7 +89,9 @@ function Cart() {
               </div>
               <div className="row mb-10">
                 <div className="col-6">Total Price</div>
-                <div className="col-6">${totalPrice}</div>
+                <div className="col-6">
+                  ${parseFloat(totalPrice).toFixed(2)}
+                </div>
               </div>
               <Link to="/ship-detail">
                 <button type="button" className="checkout">
