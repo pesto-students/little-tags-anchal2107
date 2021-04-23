@@ -1,14 +1,18 @@
 import React, { useState, useContext } from "react";
-import { useHistory, withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
+import { withRouter, useHistory } from "react-router-dom";
 import FirebaseContext from "./../../firebase/FirebaseContext";
-import { FcGoogle } from "react-icons/fc";
-import { FaFacebook } from "react-icons/fa";
+import SignUpModalContent from "./SignUpModalContent";
 import "./SignUpModal.scss";
 
-function SignUpModal() {
+function SignUpModal({ show }) {
+  localStorage.setItem("showModal", false);
   const firebase = useContext(FirebaseContext);
-  const history = useHistory();
   const [errorMessage, setErrorMessage] = useState("");
+  const history = useHistory();
+  const handleCloseModal = () => {
+    document.getElementById("signUpModal").style.display = "none";
+  };
   const handleGoogleSignIn = () => {
     firebase
       .doGoogleSignIn()
@@ -21,7 +25,8 @@ function SignUpModal() {
         }
       })
       .then(() => {
-        history.goBack();
+        handleCloseModal();
+        history.push("/");
       })
       .catch((error) => {
         setErrorMessage(error.message);
@@ -39,47 +44,47 @@ function SignUpModal() {
         }
       })
       .then(() => {
-        history.goBack();
+        handleCloseModal();
+        history.push("/");
       })
       .catch((error) => {
         setErrorMessage(error.message);
       });
   };
 
-  return (
-    <div id="signUpModal" className="overlay">
-      <div className="card center z-1">
-        <div className="signup-container">
-          <div>
-            <h2>Sign in to Little Tags</h2>
-          </div>
-          <div className="auth card" onClick={handleGoogleSignIn}>
-            <div>
-              <FcGoogle />
-            </div>
-            <div className="signin-text">Sign in with Google</div>
-            <div className="g-signin2"></div>
-          </div>
-          <div className="auth card" onClick={handleFacebookSignIn}>
-            <div>
-              <FaFacebook />
-            </div>
-            <div className="signin-text">Sign in with Facebook</div>
-            <div
-              className="fb-login-button"
-              data-width=""
-              data-size="large"
-              data-button-type="continue_with"
-              data-layout="default"
-              data-auto-logout-link="false"
-              data-use-continue-as="false"
-            ></div>
-            <div id="status">{errorMessage}</div>
-          </div>
-        </div>
+  if (errorMessage) {
+    return <h2>{errorMessage}</h2>;
+  }
+  //Need to fix this
+  if (!show) {
+    return (
+      <div id="signUpModal" className="overlay none">
+        <SignUpModalContent
+          handleGoogleSignIn={handleGoogleSignIn}
+          handleFacebookSignIn={handleFacebookSignIn}
+          handleCloseModal={handleCloseModal}
+        />
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div id="signUpModal" className="overlay">
+        <SignUpModalContent
+          handleGoogleSignIn={handleGoogleSignIn}
+          handleFacebookSignIn={handleFacebookSignIn}
+          handleCloseModal={handleCloseModal}
+        />
+      </div>
+    );
+  }
 }
 
 export default withRouter(SignUpModal);
+
+SignUpModal.propTypes = {
+  show: PropTypes.bool,
+};
+
+SignUpModal.defaultProps = {
+  show: true,
+};

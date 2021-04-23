@@ -32,7 +32,7 @@ OrderCard.propTypes = {
   price: PropTypes.number.isRequired,
   date: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  productId: PropTypes.string.isRequired,
+  productId: PropTypes.number.isRequired,
 };
 
 OrderCard.defaultProps = {
@@ -40,5 +40,5 @@ OrderCard.defaultProps = {
   price: 0,
   date: "",
   image: "",
-  productId: "1",
+  productId: 1,
 };

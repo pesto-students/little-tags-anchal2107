@@ -5,19 +5,19 @@ import MainContent from "./maincontent/MainContent";
 import Header from "./header/Header";
 import Footer from "./footer/Footer";
 import { BrowserRouter } from "react-router-dom";
-import withAuthentication from './session/withAuthentication';
+import withAuthentication from "./session/withAuthentication";
+// import SignUpModal from "./header/authentication/SignUpModal";
 
 function App() {
   const authUser = useSelector((state) => state.sessionState);
-  console.log("test: ", authUser.authUser);
   return (
     <div className="app">
       <BrowserRouter>
+        {/* {!!localStorage.getItem("showModal") ? <SignUpModal show={true}/> : <SignUpModal show={false}/>} */}
         <header className="header">
-          <Header />
+          <Header authUser={authUser}/>
         </header>
         <main className="main">
-        {/* {!authUser.authUser && <SignUpModal />} */}
           <MainContent />
         </main>
         <footer className="footer">

@@ -2,7 +2,7 @@ import React, { useEffect, useContext } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import FirebaseContext from "../firebase/FirebaseContext";
-import * as ROUTES from "../constant/Routes";
+import * as ROUTES from "./../constant/Routes";
 
 const withAuthorization = (Component) => {
   const NewComponent = (props) => {

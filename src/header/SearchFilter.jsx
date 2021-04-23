@@ -31,6 +31,7 @@ function SearchFilter() {
         type="search"
         placeholder="Search here..."
         onChange={(e) => setSearchText(e.target.value)}
+        value={searchText}
         onKeyPress={handleSearchKeyPress}
       />
       <FaSearch onClick={handleSearchOnClick}/>

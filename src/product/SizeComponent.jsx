@@ -1,11 +1,10 @@
-import React, {useEffect} from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 function SizeComponent({ handleSizeCallback }) {
   const handleSizeChange = (e) => {
     handleSizeCallback(e.target.value);
   };
-  useEffect(() => {document.getElementById("xs").checked=true}, []);
   return (
     <>
       <div className="size align-left">
@@ -16,8 +15,8 @@ function SizeComponent({ handleSizeCallback }) {
               type="radio"
               id="xs"
               name="size"
-              value="XS"              
-              onChange={handleSizeChange}      
+              value="XS"
+              onChange={handleSizeChange}
             />
             <label htmlFor="xs">
               <span>XS</span>
@@ -42,6 +41,7 @@ function SizeComponent({ handleSizeCallback }) {
               name="size"
               value="M"
               onChange={handleSizeChange}
+              defaultChecked
             />
             <label htmlFor="m">
               <span>M</span>
