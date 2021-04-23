@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import FirebaseContext from "./../firebase/FirebaseContext";
@@ -13,6 +13,14 @@ function ShippingDetails() {
   const [phoneNo, setPhoneNo] = useState("");
   const dispatch = useDispatch();
   const history = useHistory();
+
+  useEffect(() => {
+    firebase.getDefaultAddress(authUser.authUser.uid).then((snapshot) => {
+      const dbUser = snapshot.val();
+      setAddress(dbUser);
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleConfirmOrderClick = () => {
     if (name === "" || address === "" || phoneNo === "") {
@@ -40,6 +48,7 @@ function ShippingDetails() {
               id="shipPersonName"
               placeholder="Enter Name"
               onChange={(e) => setName(e.target.value)}
+              autoFocus
               required
             />
           </div>
@@ -59,11 +68,12 @@ function ShippingDetails() {
               type="text"
               id="shipAddress"
               placeholder="Enter Address"
+              defaultValue={address}
               onChange={(e) => setAddress(e.target.value)}
               required
             />
             <span>
-              <input type="checkbox" id="shipDefaultAddress" checked />
+              <input type="checkbox" id="shipDefaultAddress" defaultChecked />
               <label htmlFor="shipDefaultAddress">Set as default address</label>
             </span>
           </div>
