@@ -1,15 +1,19 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useSelector } from "react-redux";
+import FirebaseContext from "./../firebase/FirebaseContext";
 import RadioButton from "./RadioButton";
 
 function PaymentCard() {
+  const firebase = useContext(FirebaseContext);
   const [paymentMethod, setPaymentMethod] = useState("COD");
-  const { name, address, phoneNo, totalPrice } = useSelector(
+  const { name, address, phoneNo, totalPrice, products } = useSelector(
     (state) => state.cartReducer
-  );
+  );  
+  const authUser = useSelector((state) => state.sessionState);
   const radioChangeHandler = (event) => {
     setPaymentMethod(event.target.value);
   };
+
   const options = {
     key: "rzp_test_gbkbZiL7NeddJL",
     amount: totalPrice * 100,
@@ -22,7 +26,8 @@ function PaymentCard() {
       //     razorpayPaymentId: response.razorpay_payment_id,
       //     razorpayOrderId: response.razorpay_order_id,
       //     razorpaySignature: response.razorpay_signature,
-      // };
+      // };      
+      firebase.setOrderData(authUser.authUser.uid, products);
       window.location.href = `/thank-you`;
     },
     prefill: {
@@ -41,6 +46,7 @@ function PaymentCard() {
 
   const openPayModal = () => {
     if (paymentMethod === "COD") {      
+      firebase.setOrderData(authUser.authUser.uid, products);
       window.location.href = `/thank-you`;
       return;
     }
