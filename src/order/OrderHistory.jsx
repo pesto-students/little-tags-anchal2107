@@ -5,11 +5,21 @@ import FirebaseContext from "./../firebase/FirebaseContext";
 import withAuthorization from "./../session/withAuthorization";
 import { toDateTime } from "./../utililty/util";
 import "./OrderHistory.scss";
+import Pagination from "../product/Pagination";
 
 const OrderHistory = () => {
   const firebase = useContext(FirebaseContext);
   const authUser = useSelector((state) => state.sessionState);
   const [orderData, setOrderData] = useState([]);
+  const [pagination, setPagination] = useState({
+    start: 0,
+    end: 5,
+  });
+
+  const onPaginationChange = (start, end) => {
+    setPagination({ start: start, end: end });
+  };
+
   useEffect(() => {
     firebase.getOrderData(authUser.authUser.uid).then((snapshot) => {
       const order = snapshot.val();
@@ -24,6 +34,7 @@ const OrderHistory = () => {
               title,
               price,
               image,
+              i,
             },
           ]);
         }
@@ -31,20 +42,29 @@ const OrderHistory = () => {
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  const content = orderData.map(({ id, title, date, price, image }) => (
-    <OrderCard
-      key={id}
-      productId={id}
-      title={title}
-      image={image}
-      price={price}
-      date={date}
-    />
-  ));
+
+  //{id+i} for uniqueness of key
+  const content = orderData
+    .slice(pagination.start, pagination.end)
+    .map(({ id, title, date, price, image, i }) => (
+      <OrderCard
+        key={id + i}
+        productId={id}
+        title={title}
+        image={image}
+        price={price}
+        date={date}
+      />
+    ));
   return (
     <div className="order-history-container">
       <h1>Your Orders</h1>
       <div className="flex flex-col">{content}</div>
+      <Pagination
+        showPerPage={5}
+        onPaginationChange={onPaginationChange}
+        total={orderData.length}
+      />
     </div>
   );
 };
