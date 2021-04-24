@@ -156,6 +156,28 @@ input:focus {
 .mt-1 {
   margin-top: 1rem;
 }
+.pagination-container {
+  display: flex;
+  justify-content: center;
+}
+.pagination {
+  display: flex;
+  justify-content: space-around;
+  width: 20%;
+  list-style: none;
+  .page-item {
+    padding: 0.5rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .page-item:hover {
+    color: red;
+  }
+}
+.active-page {
+  color: red;
+}
 
 @media screen and (max-width: 600px) {
   .product-container {
