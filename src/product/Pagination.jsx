@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
-const Pagination = ({ onPaginationChange, total }) => {
+const Pagination = ({ showPerPage, onPaginationChange, total }) => {
   const [counter, setCounter] = useState(1);
-  const showPerPage = 8;
+  console.log(total, showPerPage);
   const numberOfButtons = Math.ceil(total / showPerPage);
   useEffect(() => {
     const value = showPerPage * counter;
@@ -55,11 +55,13 @@ const Pagination = ({ onPaginationChange, total }) => {
 export default Pagination;
 
 Pagination.propTypes = {
+  showPerPage: PropTypes.func.isRequired,
   onPaginationChange: PropTypes.func.isRequired,
   total: PropTypes.number.isRequired,
 };
 
 Pagination.defaultProps = {
+  showPerPage: 2,
   onPaginationChange: () => {},
   total: 0,
 };

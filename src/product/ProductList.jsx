@@ -54,9 +54,11 @@ const ProductList = () => {
     searchTitle();
   }, [dispatch, search, searchTitle]);
   const { filteredProducts } = useSelector((state) => state.productsReducer);
-  const content = filteredProducts.slice(pagination.start, pagination.end).map(({ id, title, image, price }) => (
-    <ProductCard key={id} id={id} title={title} image={image} price={price} />
-  ));
+  const content = filteredProducts
+    .slice(pagination.start, pagination.end)
+    .map(({ id, title, image, price }) => (
+      <ProductCard key={id} id={id} title={title} image={image} price={price} />
+    ));
 
   return (
     <div className="flex flex-col product-list-container">
@@ -65,10 +67,10 @@ const ProductList = () => {
       <div className="product-list">{content}</div>
 
       <Pagination
-          onPaginationChange={onPaginationChange}
-          total={filteredProducts.length}
-        />
-
+        showPerPage={8}
+        onPaginationChange={onPaginationChange}
+        total={filteredProducts.length}
+      />
     </div>
   );
 };
