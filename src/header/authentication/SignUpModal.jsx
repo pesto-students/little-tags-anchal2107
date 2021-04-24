@@ -6,12 +6,12 @@ import SignUpModalContent from "./SignUpModalContent";
 import "./SignUpModal.scss";
 
 function SignUpModal({ show }) {
-  localStorage.setItem("showModal", false);
   const firebase = useContext(FirebaseContext);
   const [errorMessage, setErrorMessage] = useState("");
   const history = useHistory();
   const handleCloseModal = () => {
     document.getElementById("signUpModal").style.display = "none";
+    history.push("/");
   };
   const handleGoogleSignIn = () => {
     firebase

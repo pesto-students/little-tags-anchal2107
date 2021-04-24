@@ -1,6 +1,8 @@
+import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-function ProfileIcon() {
+function ProfileIcon() {  
+  const authUser = useSelector((state) => state.sessionState);
   const history = useHistory();
   const loadSignInModal = () => {
     history.push("/signin");
@@ -12,7 +14,7 @@ function ProfileIcon() {
       </div>
     );
   }
-  const userData = JSON.parse(localStorage.authUser);
+  const userData = authUser.authUser || JSON.parse(localStorage.authUser);
   const { imagePath, username } = userData;
   return (
     <div className="profile-icon">
