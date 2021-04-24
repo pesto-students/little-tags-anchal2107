@@ -9,6 +9,11 @@ import "./MenuIcon.scss";
 const MenuIcon = () => {
   const firebase = useContext(FirebaseContext);
   const dispatch = useDispatch();
+  const closeHambergerOnLinkSelect = () =>{
+ //   const currentCheckedStatus = document.getElementById("navbarIcon").checked
+    document.getElementById("navbarIcon").checked = false;
+    handleChangeNavbarIcon();
+  }
   const handleChangeNavbarIcon = () => {
     if (document.getElementById("navbarIcon").checked) {
       document.getElementById("mainContent").classList.add("disabled");
@@ -36,25 +41,23 @@ const MenuIcon = () => {
       <span></span>
       <ul className="menu">
         <h1>Categories</h1>
-        <NavLink to={"/products/mens-clothing"}>
+        <NavLink to={"/products/mens-clothing"} onClick={closeHambergerOnLinkSelect}>
           <li>Men's Clothing</li>
         </NavLink>
-        <NavLink to={"/products/women-clothing"}>
+        <NavLink to={"/products/women-clothing"} onClick={closeHambergerOnLinkSelect}>
           <li>Women's Clothing</li>
         </NavLink>
-        <NavLink to={"/products/jewel"}>
+        <NavLink to={"/products/jewel"} onClick={closeHambergerOnLinkSelect}>
           <li>Jewellery</li>
         </NavLink>
-        <NavLink to={"/products/electronics"}>
+        <NavLink to={"/products/electronics"} onClick={closeHambergerOnLinkSelect}>
           <li>Electronics</li>
         </NavLink>
         <hr />
-        <NavLink to={"/order-history"}>
+        <NavLink to={"/order-history"} onClick={closeHambergerOnLinkSelect}>
           <li>Past Orders</li>
         </NavLink>
-        <div className="hero-button log-out" onClick={handleSignOut}>
-          Log Out
-        </div>
+        <li className="hero-button log-out" onClick={handleSignOut} >Log Out</li>
       </ul>
     </div>
   );
