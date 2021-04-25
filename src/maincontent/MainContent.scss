@@ -41,6 +41,11 @@
   }
 }
 
+@media screen and (max-width: 1070px) {
+  .product-category-card {
+    height: 454px;
+  }
+}
 @media screen and (max-width: 600px) {
   .product-category-home {
     .grid-container {
@@ -49,5 +54,6 @@
   }
   .product-category-card {
     width: 90%;
+    height: 425px;
   }
 }
