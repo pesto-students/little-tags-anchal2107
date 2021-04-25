@@ -4,6 +4,7 @@ import ProductCard from "./ProductCard";
 import { useParams } from "react-router-dom";
 import * as actions from "../constant/actionTypes";
 import Pagination from "./Pagination";
+import * as CATEGORY from "./../constant/categoryRoutes";
 
 const ProductList = () => {
   const { search } = useParams();
@@ -22,16 +23,16 @@ const ProductList = () => {
   const searchTitle = useCallback(() => {
     switch (search) {
       case "mens-clothing":
-        setCategoryName("Men's Clothing");
+        setCategoryName(CATEGORY.mensClothing);
         break;
       case "women-clothing":
-        setCategoryName("Women's Clothing");
+        setCategoryName(CATEGORY.womensClothing);
         break;
       case "jewel":
-        setCategoryName("Jewellery");
+        setCategoryName(CATEGORY.jewels);
         break;
       case "electronics":
-        setCategoryName("Electronics");
+        setCategoryName(CATEGORY.electronics);
         break;
       case "":
       case undefined:

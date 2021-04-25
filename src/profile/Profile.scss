@@ -1,0 +1,48 @@
+.view-profile-container {
+  display: inline-flex;
+  flex-direction: column;
+  width: 40%;
+  margin: 1rem;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  padding: 1rem;
+  img {
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    align-self: center;
+    margin: 1rem;
+  }
+  h2 {
+    margin: 1rem;
+  }  
+  textarea {
+    padding: 0.1rem 0.6rem;
+    min-height: 10vh;
+    width: 95%;
+    margin-left: 2%;
+    font-family: inherit;
+  }
+  .address-button-div {
+    text-align: center;
+    margin: 1rem;
+  }
+  .address-button {
+    align-self: center;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    padding: 0.7rem 2rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  .address-button:hover {
+    background-color: black;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .view-profile-container {
+    width: 96%;
+  }
+}

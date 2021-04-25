@@ -13,6 +13,7 @@ import Cart from "../order/Cart";
 import OrderHistory from "../order/OrderHistory";
 import ThankYou from "../order/ThankYou";
 import SignUpModal from "../header/authentication/SignUpModal";
+import Profile from "../profile/Profile";
 
 function MainContent() {
   return (
@@ -25,14 +26,7 @@ function MainContent() {
         <Route path={ROUTES.ORDER_CONFIRMATION} component={ConfirmationPage} />
         <Route path={ROUTES.SHIP_DETAILS} component={ShippingDetails} />
         <Route path={ROUTES.PRODUCT_SEARCH} component={ProductList} />
-        {/* <Route
-          path={ROUTES.VIEW_CURRENT_PROFILE}
-          component={ViewCurrentProfile}
-         />
-        <Route
-          path={ROUTES.EDIT_CURRENT_PROFILE}
-          component={EditCurrentProfile}
-         /> */}
+        <Route path={ROUTES.MY_PROFILE} component={Profile} />
         <Route path={ROUTES.PRODUCT_LIST} component={ProductList} />
         <Route path={ROUTES.PRODUCT_DETAIL} exact component={Product} />
         <Route path={ROUTES.CART} component={Cart} />
