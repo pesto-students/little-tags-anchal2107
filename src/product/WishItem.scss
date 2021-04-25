@@ -1,0 +1,29 @@
+.wishList-Big-container {
+  display: flex;
+  background-color: #080808;
+  color: white;
+  border-radius: 5px;
+  width: 32%;
+  padding: 0.6rem;
+  align-items: center;
+  margin: 0.6rem 0;
+  cursor: pointer;
+  svg {
+    margin: 0 0.5rem;
+  }
+  &:hover {
+    background-color: black;
+  }
+}
+@media screen and (max-width: 600px) {
+  .wishList-Big-container {
+    width: 65%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .wishList-Big-container {
+    align-self: center;
+    width: 50%;
+  }
+}

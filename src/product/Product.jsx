@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import * as actions from "../constant/actionTypes";
 import "./Product.scss";
+import WishItem from "./WishItem";
 
 function Product() {
   const [quantity, setQuantity] = useState(1);
@@ -48,6 +49,7 @@ function Product() {
         <SizeComponent handleSizeCallback={handleSizeCallback} />
         <QuantityComponent handleQuantityCallback={handleQuantityCallback} />
         <CartComponent handleAddToCart={handleAddToCart} />
+        <WishItem isSmallComponent={false} isAdded={false} productId={id} />
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import CartIcon from "./CartIcon";
 import ProfileIcon from "./ProfileIcon";
 import SearchFilter from "./SearchFilter";
 import { NavLink } from "react-router-dom";
+import WishItemIcon from "./WishItemIcon";
 import "./Header.scss";
 
 function Header() {
@@ -16,6 +17,7 @@ function Header() {
       </div>
       <SearchFilter />
       <ProfileIcon />
+      <WishItemIcon />
       <CartIcon />
     </div>
   );
