@@ -55,7 +55,7 @@ const Pagination = ({ showPerPage, onPaginationChange, total }) => {
 export default Pagination;
 
 Pagination.propTypes = {
-  showPerPage: PropTypes.func.isRequired,
+  showPerPage: PropTypes.number.isRequired,
   onPaginationChange: PropTypes.func.isRequired,
   total: PropTypes.number.isRequired,
 };
