@@ -6,7 +6,7 @@ import withAuthorization from "../session/withAuthorization";
 import { Link } from "react-router-dom";
 import "./WishItemList.scss";
 const WishItemList = () => {
-  const { products } = useSelector((state) => state.cartReducer);
+  const { products } = useSelector((state) => state.wishReducer);
   const dispatch = useDispatch();
   return (
     <div>

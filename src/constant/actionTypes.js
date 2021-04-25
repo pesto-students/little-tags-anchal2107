@@ -11,3 +11,4 @@ export const RESET_AUTH_USER = "RESET_AUTH_USER";
 export const RESET_CART = "RESET_CART";
 export const ADD_TO_WISH_LIST = "ADD_TO_WishList";
 export const REMOVE_FROM_WISH_LIST="Remove_From_WishList"
+export const RESET_WISH_LIST="Reset_WishList"
