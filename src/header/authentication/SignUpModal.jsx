@@ -1,11 +1,10 @@
 import React, { useState, useContext } from "react";
-import PropTypes from "prop-types";
 import { withRouter, useHistory } from "react-router-dom";
 import FirebaseContext from "./../../firebase/FirebaseContext";
 import SignUpModalContent from "./SignUpModalContent";
 import "./SignUpModal.scss";
 
-function SignUpModal({ show }) {
+function SignUpModal() {
   const firebase = useContext(FirebaseContext);
   const [errorMessage, setErrorMessage] = useState("");
   const history = useHistory();
@@ -55,36 +54,15 @@ function SignUpModal({ show }) {
   if (errorMessage) {
     return <h2>{errorMessage}</h2>;
   }
-  //Need to fix this
-  if (!show) {
-    return (
-      <div id="signUpModal" className="overlay none">
-        <SignUpModalContent
-          handleGoogleSignIn={handleGoogleSignIn}
-          handleFacebookSignIn={handleFacebookSignIn}
-          handleCloseModal={handleCloseModal}
-        />
-      </div>
-    );
-  } else {
-    return (
-      <div id="signUpModal" className="overlay">
-        <SignUpModalContent
-          handleGoogleSignIn={handleGoogleSignIn}
-          handleFacebookSignIn={handleFacebookSignIn}
-          handleCloseModal={handleCloseModal}
-        />
-      </div>
-    );
-  }
+  return (
+    <div id="signUpModal" className="overlay">
+      <SignUpModalContent
+        handleGoogleSignIn={handleGoogleSignIn}
+        handleFacebookSignIn={handleFacebookSignIn}
+        handleCloseModal={handleCloseModal}
+      />
+    </div>
+  );
 }
 
 export default withRouter(SignUpModal);
-
-SignUpModal.propTypes = {
-  show: PropTypes.bool,
-};
-
-SignUpModal.defaultProps = {
-  show: true,
-};

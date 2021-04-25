@@ -1,7 +1,7 @@
 {
   "name": "Little tags",
   "short_name": "little tags",
-  "theme_color": "",
+  "theme_color": "white",
   "background_color": "#ffffff",
   "description": "An online clothing store",
   "display": "fullscreen",
