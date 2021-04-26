@@ -1,13 +1,14 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import ProductCard from "./ProductCard";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import * as actions from "../constant/actionTypes";
 import Pagination from "./Pagination";
 import * as CATEGORY from "./../constant/categoryRoutes";
 
 const ProductList = () => {
   const { search } = useParams();
+  const { pathname } = useLocation();
   const [categoryName, setCategoryName] = useState("");
   const dispatch = useDispatch();
 
@@ -19,7 +20,6 @@ const ProductList = () => {
   const onPaginationChange = (start, end) => {
     setPagination({ start: start, end: end });
   };
-
   const searchTitle = useCallback(() => {
     switch (search) {
       case "mens-clothing":
@@ -44,16 +44,19 @@ const ProductList = () => {
   }, [search]);
 
   useEffect(() => {
-    dispatch({
-      type: actions.FETCH_PRODUCT_BY_SEARCH_TEXT,
-      payload: search ? search : "",
-    });
-    dispatch({
-      type: actions.FETCH_PRODUCT_BY_CATEGORY,
-      payload: search ? search : "",
-    });
+    if (pathname.indexOf("product-title") > -1) {
+      dispatch({
+        type: actions.FETCH_PRODUCT_BY_SEARCH_TEXT,
+        payload: search ? search : "",
+      });
+    } else {
+      dispatch({
+        type: actions.FETCH_PRODUCT_BY_CATEGORY,
+        payload: search ? search : "",
+      });
+    }
     searchTitle();
-  }, [dispatch, search, searchTitle]);
+  }, [dispatch, search, searchTitle, pathname]);
   const { filteredProducts } = useSelector((state) => state.productsReducer);
   const content = filteredProducts
     .slice(pagination.start, pagination.end)
