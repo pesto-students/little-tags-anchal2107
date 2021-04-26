@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 
 const Pagination = ({ showPerPage, onPaginationChange, total }) => {
   const [counter, setCounter] = useState(1);
-  console.log(total, showPerPage);
   const numberOfButtons = Math.ceil(total / showPerPage);
   useEffect(() => {
     const value = showPerPage * counter;
