@@ -53,6 +53,7 @@
 .disabled {
   opacity: 0.25;
   pointer-events: none;
+  overflow: hidden;
 }
 .none {
   display: none;

@@ -13,7 +13,7 @@ function App() {
       <BrowserRouter>
         {/* {!show ? <SignUpModal /> : ""} */}
         <header className="header">
-          <Header  />
+          <Header />
         </header>
         <main className="main">
           <MainContent />

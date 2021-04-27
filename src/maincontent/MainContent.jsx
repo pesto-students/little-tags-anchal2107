@@ -10,6 +10,7 @@ import Cart from "../order/Cart";
 import OrderHistory from "../order/OrderHistory";
 import ThankYou from "../order/ThankYou";
 import SignUpModal from "../header/authentication/SignUpModal";
+import WishItemList from "../product/WishItemList";
 import Profile from "../profile/Profile";
 
 function MainContent() {
@@ -20,6 +21,7 @@ function MainContent() {
         <Route path={ROUTES.ORDER_CONFIRMATION} component={ConfirmationPage} />
         <Route path={ROUTES.SHIP_DETAILS} component={ShippingDetails} />
         <Route path={ROUTES.PRODUCT_SEARCH} component={ProductList} />
+        <Route path={ROUTES.WISH_ITEM_LIST} component={WishItemList} />
         <Route path={ROUTES.PRODUCT_CATAGORY_SEARCH} component={ProductList} />
         <Route path={ROUTES.MY_PROFILE} component={Profile} />
         <Route path={ROUTES.PRODUCT_LIST} component={ProductList} />

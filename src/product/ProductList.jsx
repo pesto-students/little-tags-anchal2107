@@ -11,7 +11,7 @@ const ProductList = () => {
   const { pathname } = useLocation();
   const [categoryName, setCategoryName] = useState("");
   const dispatch = useDispatch();
-
+ 
   const [pagination, setPagination] = useState({
     start: 0,
     end: 8,
@@ -60,9 +60,17 @@ const ProductList = () => {
   const { filteredProducts } = useSelector((state) => state.productsReducer);
   const content = filteredProducts
     .slice(pagination.start, pagination.end)
-    .map(({ id, title, image, price }) => (
-      <ProductCard key={id} id={id} title={title} image={image} price={price} />
-    ));
+    .map(({ id, title, image, price }) => {         
+      return (
+        <ProductCard
+          key={id}
+          id={id}
+          title={title}
+          image={image}
+          price={price}
+        />
+      );
+    });
 
   return (
     <div className="flex flex-col product-list-container">
