@@ -12,3 +12,5 @@ export const RESET_CART = "RESET_CART";
 export const ADD_TO_WISH_LIST = "ADD_TO_WishList";
 export const REMOVE_FROM_WISH_LIST="Remove_From_WishList"
 export const RESET_WISH_LIST="Reset_WishList"
+export const REFRESH_WISH_LIST="Refresh_WishList"
+export const UPDATE_WISH_LIST_COUNT="Update_Wish_List_Count"
