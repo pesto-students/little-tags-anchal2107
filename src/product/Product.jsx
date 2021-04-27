@@ -34,7 +34,7 @@ function Product() {
   };
 
   const WishListOperations = (doAddToWishList) => {
-    if (authUser != null) {
+    if (authUser != null && authUser.authUser != null) {
       if (doAddToWishList) {
         return () => {
           firebase.updateWishItem(authUser.authUser.uid, product);
@@ -55,10 +55,11 @@ function Product() {
         };
       }
     }
+    // pop up sign up model
   };
 
   const isItemInWishList = () => {
-    if (authUser != null) {
+    if (authUser != null && authUser.authUser != null) {
       firebase.getWishListData(authUser.authUser.uid).then((snapshot) => {
         const wishProducts = snapshot.val();
         for (let i in wishProducts) {

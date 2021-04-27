@@ -24,7 +24,7 @@ function ProductCard({ id, title, image, price }) {
   };
 
   const WishListOperations = (doAddToWishList) => {
-    if (authUser != null) {
+    if (authUser != null && authUser.authUser != null) {
       if (doAddToWishList) {
         return () => {
           firebase.updateWishItem(authUser.authUser.uid, product);
@@ -45,9 +45,10 @@ function ProductCard({ id, title, image, price }) {
         };
       }
     }
+    // pop up sign in model
   };
   const isItemInWishList = () => {
-    if (authUser != null) {
+    if (authUser != null && authUser.authUser != null) {
       console.log(` isItemInWishList ${JSON.stringify(id)}`);
       firebase.getWishListData(authUser.authUser.uid).then((snapshot) => {
         const wishProducts = snapshot.val();
