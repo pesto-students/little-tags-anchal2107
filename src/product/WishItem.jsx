@@ -1,7 +1,7 @@
 import "./WishItem.scss";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { FcLike, FcLikePlaceholder } from "react-icons/fc";
-import withAuthorization from "./../session/withAuthorization";
+
 
 const WishItem = ({ isSmallComponent, isAdded, productId }) => {
   console.log(` wish list small:${isSmallComponent} and added ${isAdded}`);
@@ -30,5 +30,5 @@ const WishItem = ({ isSmallComponent, isAdded, productId }) => {
     );
   }
 };
+//export default WishItem;
 export default WishItem;
-//export default withAuthorization(WishItem);

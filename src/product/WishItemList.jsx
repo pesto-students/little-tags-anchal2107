@@ -10,7 +10,6 @@ const WishItemList = () => {
   const dispatch = useDispatch();
   return (
     <div>
-      <h1>I a min wishItemList page</h1>
       {products.length > 0 ? (
         <div>
           <div className="cart-div-container">
@@ -53,4 +52,4 @@ const WishItemList = () => {
     </div>
   );
 };
-export default WishItemList;
+export default withAuthorization(WishItemList);

@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { resetAuthUser } from "../actions";
 import * as actions from "./../constant/actionTypes";
+import * as ROUTES from "./../constant/Routes";
+import * as CATEGORY from "./../constant/categoryRoutes";
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import FirebaseContext from "./../firebase/FirebaseContext";
@@ -9,11 +11,10 @@ import "./MenuIcon.scss";
 const MenuIcon = () => {
   const firebase = useContext(FirebaseContext);
   const dispatch = useDispatch();
-  const closeHambergerOnLinkSelect = () =>{
- //   const currentCheckedStatus = document.getElementById("navbarIcon").checked
+  const closeHambergerOnLinkSelect = () => {
     document.getElementById("navbarIcon").checked = false;
     handleChangeNavbarIcon();
-  }
+  };
   const handleChangeNavbarIcon = () => {
     if (document.getElementById("navbarIcon").checked) {
       document.getElementById("mainContent").classList.add("disabled");
@@ -22,6 +23,7 @@ const MenuIcon = () => {
     }
   };
   const handleSignOut = () => {
+    closeHambergerOnLinkSelect();
     firebase.doSignOut();
     dispatch(resetAuthUser());
     dispatch({
@@ -41,23 +43,33 @@ const MenuIcon = () => {
       <span></span>
       <ul className="menu">
         <h1>Categories</h1>
-        <NavLink to={"/products/mens-clothing"} onClick={closeHambergerOnLinkSelect}>
-          <li>Men's Clothing</li>
+        <NavLink to={CATEGORY.MENS} onClick={closeHambergerOnLinkSelect}>
+          <li>{CATEGORY.mensClothing}</li>
         </NavLink>
-        <NavLink to={"/products/women-clothing"} onClick={closeHambergerOnLinkSelect}>
-          <li>Women's Clothing</li>
+        <NavLink to={CATEGORY.WOMENS} onClick={closeHambergerOnLinkSelect}>
+          <li>{CATEGORY.womensClothing}</li>
         </NavLink>
-        <NavLink to={"/products/jewel"} onClick={closeHambergerOnLinkSelect}>
-          <li>Jewellery</li>
+        <NavLink to={CATEGORY.JEWEL} onClick={closeHambergerOnLinkSelect}>
+          <li>{CATEGORY.jewels}</li>
         </NavLink>
-        <NavLink to={"/products/electronics"} onClick={closeHambergerOnLinkSelect}>
-          <li>Electronics</li>
+        <NavLink to={CATEGORY.ELECTRONICS} onClick={closeHambergerOnLinkSelect}>
+          <li>{CATEGORY.electronics}</li>
         </NavLink>
         <hr />
-        <NavLink to={"/order-history"} onClick={closeHambergerOnLinkSelect}>
+        <NavLink to={ROUTES.ORDER_HISTORY} onClick={closeHambergerOnLinkSelect}>
           <li>Past Orders</li>
         </NavLink>
-        <li className="hero-button log-out" onClick={handleSignOut} >Log Out</li>
+        <NavLink to={ROUTES.ORDER_HISTORY} onClick={closeHambergerOnLinkSelect}>
+          <li>Wishlist</li>
+        </NavLink>
+        <NavLink to={ROUTES.MY_PROFILE} onClick={closeHambergerOnLinkSelect}>
+          <li>Profile</li>
+        </NavLink>
+        <div className="menu-log-out">
+          <li className="hero-button log-out" onClick={handleSignOut}>
+            Sign Out
+          </li>
+        </div>
       </ul>
     </div>
   );

@@ -1,5 +1,4 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import "./App.scss";
 import MainContent from "./maincontent/MainContent";
 import Header from "./header/Header";
@@ -9,13 +8,12 @@ import withAuthentication from "./session/withAuthentication";
 // import SignUpModal from "./header/authentication/SignUpModal";
 
 function App() {
-  const authUser = useSelector((state) => state.sessionState);
   return (
-    <div className="app">
+    <div className="app ">
       <BrowserRouter>
-        {/* {!!localStorage.getItem("showModal") ? <SignUpModal show={true}/> : <SignUpModal show={false}/>} */}
+        {/* {!show ? <SignUpModal /> : ""} */}
         <header className="header">
-          <Header authUser={authUser}/>
+          <Header  />
         </header>
         <main className="main">
           <MainContent />

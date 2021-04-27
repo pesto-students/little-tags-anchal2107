@@ -33,6 +33,29 @@
   }
 }
 
+.wishItem{
+  display: flex;
+  align-items: center;
+  h3{
+    flex-grow: 1;
+  }
+}
+
+@media screen and (max-width: 1070px) {
+  .product-card-container {
+    width: 30%;
+  }
+}
+@media screen and (max-width: 900px) {
+  .product-card-container {
+    width: 28%;
+  }
+}
+@media screen and (max-width: 1070px) {
+  .product-card-container {
+    width: 26%;
+  }
+}
 @media screen and (max-width: 600px) {
   .product-card-container {
     width: 42%;

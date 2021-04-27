@@ -1,14 +1,19 @@
-import { useState, useEffect, useContext } from "react";
-import { useSelector } from "react-redux";
+import React, { useState, useEffect, useContext } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import * as actions from "./../constant/actionTypes";
+import * as ROUTES from "./../constant/Routes";
 import FirebaseContext from "./../firebase/FirebaseContext";
 import RadioButton from "./RadioButton";
 
 function PaymentCard() {
   const firebase = useContext(FirebaseContext);
+  const dispatch = useDispatch();
+  const history = useHistory();
   const [paymentMethod, setPaymentMethod] = useState("COD");
   const { name, address, phoneNo, totalPrice, products } = useSelector(
     (state) => state.cartReducer
-  );  
+  );
   const authUser = useSelector((state) => state.sessionState);
   const radioChangeHandler = (event) => {
     setPaymentMethod(event.target.value);
@@ -20,15 +25,13 @@ function PaymentCard() {
     name: "Little Tags",
     description: "Your all shopping needs",
     image: "https://cdn.razorpay.com/logos/7K3b6d18wHwKzL_medium.png",
-    handler: function handler(response) {
-      //   const data = {
-      //     orderCreationId: order_id,
-      //     razorpayPaymentId: response.razorpay_payment_id,
-      //     razorpayOrderId: response.razorpay_order_id,
-      //     razorpaySignature: response.razorpay_signature,
-      // };      
+    handler: function handler() {
       firebase.setOrderData(authUser.authUser.uid, products);
-      window.location.href = `/thank-you`;
+      dispatch({
+        type: actions.RESET_CART,
+        payload: null,
+      });
+      history.push(ROUTES.THANK_YOU);
     },
     prefill: {
       name,
@@ -45,9 +48,13 @@ function PaymentCard() {
   };
 
   const openPayModal = () => {
-    if (paymentMethod === "COD") {      
+    if (paymentMethod === "COD") {
       firebase.setOrderData(authUser.authUser.uid, products);
-      window.location.href = `/thank-you`;
+      dispatch({
+        type: actions.RESET_CART,
+        payload: null,
+      });
+      history.push(ROUTES.THANK_YOU);
       return;
     }
     const rzp1 = new window.Razorpay(options);
