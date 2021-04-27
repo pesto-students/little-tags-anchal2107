@@ -14,6 +14,7 @@ function ProductCard({ id, title, image, price }) {
   useEffect(() => {
     isItemInWishList();
     dispatch({ type: actions.PRODUCT, id });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, id]);
   const size = useState("xs");
   const product = {
@@ -49,11 +50,10 @@ function ProductCard({ id, title, image, price }) {
   };
   const isItemInWishList = () => {
     if (authUser != null && authUser.authUser != null) {
-      console.log(` isItemInWishList ${JSON.stringify(id)}`);
       firebase.getWishListData(authUser.authUser.uid).then((snapshot) => {
         const wishProducts = snapshot.val();
-        for (let i in wishProducts) {
-          if (i === id) {
+        for (const i in wishProducts) {
+          if (parseInt(i) === parseInt(id)) {
             setIsWishAdded(true);
             return true;
           }
@@ -65,31 +65,29 @@ function ProductCard({ id, title, image, price }) {
   };
 
   return (
-    <>
-      <div id={id} className="product-card-container">
-        <Link to={`/product/${id}`}>
-          <div>
-            <img src={image} alt="product" height="330" />
-          </div>
-          <div>
-            <h3 className="overflow" title={title}>
-              {title}
-            </h3>
-          </div>
-        </Link>
-        <div className="wishItem">
-          <h3 className="font-normal">$ {price}</h3>
-          <div>
-            <WishItem
-              isSmallComponent={true}
-              isAdded={isWishAdded}
-              handleAddToWishList={WishListOperations(true)}
-              handleRemoveToWishList={WishListOperations(false)}
-            />
-          </div>
+    <div id={id} className="product-card-container">
+      <Link to={`/product/${id}`}>
+        <div>
+          <img src={image} alt="product" height="330" />
+        </div>
+        <div>
+          <h3 className="overflow" title={title}>
+            {title}
+          </h3>
+        </div>
+      </Link>
+      <div className="wishitem">
+        <h3 className="font-normal">$ {price}</h3>
+        <div>
+          <WishItem
+            isSmallComponent={true}
+            isAdded={isWishAdded}
+            handleAddToWishList={WishListOperations(true)}
+            handleRemoveToWishList={WishListOperations(false)}
+          />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

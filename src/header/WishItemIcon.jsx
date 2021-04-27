@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { AiFillHeart } from "react-icons/ai";
 import * as Routes from "../constant/Routes";
 const WishItemIcon = () => {
-  let { productsCount } = useSelector((state) => state.wishReducer);
+  const { productsCount } = useSelector((state) => state.wishReducer);
   return (
     <div className="cart-icon-container">
       <Link to={Routes.WISH_ITEM_LIST}>

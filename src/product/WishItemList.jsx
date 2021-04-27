@@ -4,13 +4,11 @@ import { FcLike } from "react-icons/fc";
 import * as actions from "../constant/actionTypes";
 import withAuthorization from "../session/withAuthorization";
 import { Link } from "react-router-dom";
-import "./WishItemList.scss";
 import FirebaseContext from "./../firebase/FirebaseContext";
 
 const WishItemList = () => {
   const firebase = useContext(FirebaseContext);
   const authUser = useSelector((state) => state.sessionState);
-  let { products } = useSelector((state) => state.wishReducer);
   const dispatch = useDispatch();
   const [wishData, setwishData] = useState([]);
 
@@ -25,28 +23,28 @@ const WishItemList = () => {
       dispatch({
         type: actions.REFRESH_WISH_LIST,
         payload: wishData,
-      });   
+      });
     }
   };
   useEffect(() => {
     getItemInWishList();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const WishListOperations = (id) => {  
-      firebase.deleteWishItem(authUser.authUser.uid, id);  
-      if (wishData != null && wishData.length>0)  
-      {
-        const newWishData = wishData.filter((item)=>{return item.id !== id});
-        setwishData(newWishData);
-      }
-      else
-      {
-        setwishData([]);
-      }
-      dispatch({
-        type: actions.REMOVE_FROM_WISH_LIST,
-        payload: id,
-      });   
+  const WishListOperations = (id) => {
+    firebase.deleteWishItem(authUser.authUser.uid, id);
+    if (wishData != null && wishData.length > 0) {
+      const newWishData = wishData.filter((item) => {
+        return item.id !== id;
+      });
+      setwishData(newWishData);
+    } else {
+      setwishData([]);
+    }
+    dispatch({
+      type: actions.REMOVE_FROM_WISH_LIST,
+      payload: id,
+    });
   };
 
   return (

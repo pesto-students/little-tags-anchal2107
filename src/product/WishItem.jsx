@@ -25,7 +25,7 @@ const WishItem = ({
     );
   } else {
     return (
-      <div className="wishList-Big-container mt-1">
+      <div className="wishlist-button-container mt-1">
         {isAdded ? (
           <div onClick={handleRemoveToWishList}>
             <AiFillHeart /> Remove From WishList
@@ -47,6 +47,7 @@ WishItem.propTypes = {
   handleAddToWishList: PropTypes.func,
   handleRemoveToWishList: PropTypes.func,
   isSmallComponent: PropTypes.bool.isRequired,
+  isAdded: PropTypes.bool.isRequired,
 };
 
 WishItem.defaultProps = {

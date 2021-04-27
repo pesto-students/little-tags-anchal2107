@@ -9,11 +9,11 @@ import withAuthentication from "./session/withAuthentication";
 
 function App() {
   return (
-    <div className="app ">
+    <div className="app">
       <BrowserRouter>
         {/* {!show ? <SignUpModal /> : ""} */}
         <header className="header">
-          <Header  />
+          <Header />
         </header>
         <main className="main">
           <MainContent />

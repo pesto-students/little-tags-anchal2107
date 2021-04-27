@@ -24,6 +24,7 @@ function Product() {
   useEffect(() => {
     dispatch({ type: actions.PRODUCT, id });
     isItemInWishList();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, id]);
 
   const handleAddToCart = () => {

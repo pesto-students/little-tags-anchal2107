@@ -1,4 +1,4 @@
-.wishList-Big-container {
+.wishlist-button-container {
   display: flex;
   background-color: #080808;
   color: white;
@@ -15,14 +15,9 @@
     background-color: black;
   }
 }
-@media screen and (max-width: 600px) {
-  .wishList-Big-container {
-    width: 65%;
-  }
-}
 
 @media screen and (max-width: 600px) {
-  .wishList-Big-container {
+  .wishlist-button-container {
     align-self: center;
     width: 50%;
   }
