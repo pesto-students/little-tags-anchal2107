@@ -1,8 +1,5 @@
 export const LANDING = "/";
-export const ERROR = "/error";
 export const HOME = "/home";
-export const CONTACT_US = "/contact-us";
-export const ABOUT = "/about";
 export const ORDER_CONFIRMATION = "/confirm-order";
 export const SHIP_DETAILS = "/ship-detail";
 export const PRODUCT_LIST = "/products";

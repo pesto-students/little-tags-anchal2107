@@ -4,7 +4,7 @@ import "./Home.scss";
 
 function Home() {
   return (
-    <>
+    <div>
       <section className="hero">
         <div className="hero-content">
           <h1 className="hero-title">Online Flee Market for Clothes</h1>
@@ -17,7 +17,7 @@ function Home() {
         </div>
       </section>
       <ProductInfo />
-    </>
+    </div>
   );
 }
 
