@@ -37,6 +37,19 @@ class Firebase {
     return await ref.once("value");
   };
 
+  getWishListData = async (uid) => {
+    let ref = this.db.ref(`/users/${uid}/WishList/`);
+    return await ref.once("value");
+  };
+
+  updateWishItem = (uid, product) => {
+    this.db.ref(`/users/${uid}/WishList/${product.id}`).update(product);
+  };
+
+  deleteWishItem = (uid, productid) => {
+    this.db.ref(`/users/${uid}/WishList/${productid}`).remove();
+  };
+
   setDefaultAddress = (uid, address) => {
     this.db.ref(`/users/${uid}/defaultAddress/`).set(address);
   };
