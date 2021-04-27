@@ -16,7 +16,7 @@ function SearchFilter() {
       type: actions.FETCH_PRODUCT_BY_SEARCH_TEXT,
       payload: searchText,
     });
-    history.push(`/products/${searchText}`);
+    history.push(`/products/search/product-title=${searchText}`);
     setSearchText("");
   }
   const handleSearchKeyPress = (e) => {

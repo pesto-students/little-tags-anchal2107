@@ -4,6 +4,7 @@ import products from "../../data/products.json";
 const initialState = {
   product: {},
   filteredProducts: [],
+  products
 };
 
 const productsReducer = (state = initialState, action) => {
@@ -17,7 +18,7 @@ const productsReducer = (state = initialState, action) => {
     case actions.FETCH_PRODUCT_BY_SEARCH_TEXT:
       value = action.payload;
       filteredValues = products.filter((product) => {
-        return product.title.toLowerCase().includes(value);
+        return product.title.toLowerCase().includes(value.toLowerCase());
       });
       return {
         ...state,
@@ -26,7 +27,7 @@ const productsReducer = (state = initialState, action) => {
     case actions.FETCH_PRODUCT_BY_CATEGORY:
       value = action.payload;
       filteredValues = products.filter((product) => {
-        return product.category.toLowerCase().includes(value);
+        return product.category.toLowerCase().includes(value.toLowerCase());
       });
       return {
         ...state,

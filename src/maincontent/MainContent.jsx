@@ -28,6 +28,7 @@ function MainContent() {
         <Route path={ROUTES.SHIP_DETAILS} component={ShippingDetails} />
         <Route path={ROUTES.PRODUCT_SEARCH} component={ProductList} />
         <Route path={ROUTES.WISH_ITEM_LIST} component={WishItemList} />
+        <Route path={ROUTES.PRODUCT_CATAGORY_SEARCH} component={ProductList} />
         <Route path={ROUTES.MY_PROFILE} component={Profile} />
         <Route path={ROUTES.PRODUCT_LIST} component={ProductList} />
         <Route path={ROUTES.PRODUCT_DETAIL} exact component={Product} />
