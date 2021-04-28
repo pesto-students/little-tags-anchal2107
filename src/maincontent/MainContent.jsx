@@ -2,9 +2,6 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import * as ROUTES from "../constant/Routes";
 import Home from "./Home";
-import About from "./About";
-import ContactUs from "./ContactUs";
-import Error from "./Error";
 import ConfirmationPage from "../buypage/ConfirmationPage";
 import ShippingDetails from "../buypage/ShippingDetails";
 import ProductList from "../product/ProductList";
@@ -20,10 +17,7 @@ function MainContent() {
   return (
     <div id="mainContent" className="main-content">
       <Switch>
-        <Route path={ROUTES.ERROR} component={Error} />
         <Route path={ROUTES.HOME} component={Home} />
-        <Route path={ROUTES.CONTACT_US} component={ContactUs} />
-        <Route path={ROUTES.ABOUT} component={About} />
         <Route path={ROUTES.ORDER_CONFIRMATION} component={ConfirmationPage} />
         <Route path={ROUTES.SHIP_DETAILS} component={ShippingDetails} />
         <Route path={ROUTES.PRODUCT_SEARCH} component={ProductList} />
