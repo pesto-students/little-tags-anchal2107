@@ -1,31 +1,34 @@
 import CategoryCard from "./CategoryCard";
-import * as CategoryName from "./../constant/categoryRoutes";
 import "./MainContent.scss";
 
 function ProductInfo() {
   return (
     <div className="product-category-home">
-      <h2>Most in Demand</h2>
-      <div className="grid-container">
+      <h2>CATEGORIES TO BAG</h2>
+      <div style={{ height: "100vh" }} className="flex flex-wrap">
         <CategoryCard
-          image="https://source.unsplash.com/TwuPHbcQ57w"
-          categoryName={CategoryName.mensClothing}
+          image="https://i.postimg.cc/MGHsRdMc/mens-catg.jpg"
+          categoryName="MENS"
           category="mens-clothing"
+          widthClass="w-55"
         />
         <CategoryCard
-          image="https://source.unsplash.com/Kv5WiqG_3NA"
-          categoryName={CategoryName.womensClothing}
+          image="https://i.postimg.cc/wxmG0fWL/heroimage.jpg"
+          categoryName="WOMENS"
           category="women-clothing"
+          widthClass="w-45"
         />
         <CategoryCard
-          image="https://source.unsplash.com/s8SJ8pmxPDA"
-          categoryName={CategoryName.jewels}
+          image="https://i.postimg.cc/fRB2J6Ln/jewl-catg.jpg"
+          categoryName="JEWELLERY"
           category="jewel"
+          widthClass="w-45"
         />
         <CategoryCard
-          image="https://source.unsplash.com/1NbA4Lh7rsg"
-          categoryName={CategoryName.electronics}
+          image="https://source.unsplash.com/_aXa21cf7rY"
+          categoryName="ELECTRONICS"
           category="electronics"
+          widthClass="w-55"
         />
       </div>
     </div>

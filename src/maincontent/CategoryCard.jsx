@@ -2,12 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-const CategoryCard = ({ image, categoryName, category }) => {
+const CategoryCard = ({ image, categoryName, category, widthClass }) => {
   return (
-    <div className="product-category-card">
+    <div className={`product-category ${widthClass}`}>
+      <img className="category-img" src={image} alt="product category" />
       <Link to={`/products/${category}`}>
-        <img src={image} alt="product category" height="350" />
-        <h3>{categoryName}</h3>
+        <div className="text-block">
+          <h4>{categoryName}</h4>
+        </div>
       </Link>
     </div>
   );
@@ -19,10 +21,12 @@ CategoryCard.propTypes = {
   image: PropTypes.string.isRequired,
   categoryName: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
+  widthClass: PropTypes.string,
 };
 
 CategoryCard.defaultProps = {
   image: "",
   categoryName: "",
   category: "",
+  widthClass: "",
 };
