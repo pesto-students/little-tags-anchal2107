@@ -1,24 +1,29 @@
 .wishlist-button-container {
   display: flex;
-  background-color: #080808;
+  background-color: #dd1212;
   color: white;
-  border-radius: 5px;
-  width: 32%;
-  padding: 0.6rem;
+  border: 2px solid #dd1212;
+  // border-radius: 5px;
+  // width: 32%;
+  padding: 0.6rem 1.5rem;
   align-items: center;
   margin: 0.6rem 0;
   cursor: pointer;
-  svg {
-    margin: 0 0.5rem;
+  div {
+    font-weight: 600;
+    font-size: 1.2rem;
   }
-  &:hover {
-    background-color: black;
-  }
+  // svg {
+  //   margin: 0 0.5rem;
+  // }
+  // &:hover {
+  //   background-color: black;
+  // }
 }
 
 @media screen and (max-width: 600px) {
   .wishlist-button-container {
     align-self: center;
-    width: 50%;
+    // width: 50%;
   }
 }

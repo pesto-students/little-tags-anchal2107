@@ -8,7 +8,7 @@ function SizeComponent({ handleSizeCallback }) {
   return (
     <>
       <div className="size align-left">
-        <h4>Size</h4>
+        <h4>SIZE</h4>
         <div className="size">
           <div>
             <input
