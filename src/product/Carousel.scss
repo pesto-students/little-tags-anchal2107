@@ -14,7 +14,7 @@
 .image {
   width: 100%;
   height: auto;
-  border-radius: 10px;
+  // border-radius: 10px;
 }
 
 .right-arrow {
@@ -22,7 +22,7 @@
   top: 50%;
   right: 32px;
   font-size: 1.5rem;
-  color: black;
+  color: #dd1212;
   z-index: 1;
   cursor: pointer;
   user-select: none;
@@ -33,7 +33,7 @@
   top: 50%;
   left: 32px;
   font-size: 1.5rem;
-  color: black;
+  color: #dd1212;
   z-index: 1;
   cursor: pointer;
   user-select: none;

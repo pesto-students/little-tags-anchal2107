@@ -20,7 +20,7 @@ function QuantityComponent({ handleQuantityCallback }) {
   return (
     <>
       <div className="align-left mt-1">
-        <h4>Quantity</h4>
+        <h4>QUANTITY</h4>
         <div className="quantity flex pt-0">
           <button
             className="minus-btn"
