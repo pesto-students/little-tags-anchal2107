@@ -43,7 +43,7 @@ function Header() {
       <MenuIcon />
       <div className="logo">
         <NavLink to={"/"}>
-          <h1>Little Tags</h1>
+          <h1>Taggstar</h1>
         </NavLink>
       </div>
       <SearchFilter />
