@@ -2,6 +2,7 @@ import ProductInfo from "./ProductInfo";
 import { Link } from "react-router-dom";
 import "./Home.scss";
 import BestSeller from "./BestSeller";
+import BrandSection from "./BrandSection";
 
 function Home() {
   return (
@@ -17,6 +18,7 @@ function Home() {
           </Link>
         </div>
       </section>
+      <BrandSection />
       <ProductInfo />
       <BestSeller />
     </div>
