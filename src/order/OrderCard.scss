@@ -1,8 +1,7 @@
 .order-card {
   margin: 1rem;
   padding: 1rem;
-  background-color: whitesmoke;
-  border-radius: 10px;
+  background-color: lightgray;
   justify-content: space-between;
   align-items: center;
   .order-description {
@@ -22,7 +21,7 @@
   width: 100%;
   padding: 12px 20px;
   font-size: 1rem;
-  border-radius: 10px;
+  text-transform: capitalize;
 }
 .mr-2 {
   margin-right: 2rem;

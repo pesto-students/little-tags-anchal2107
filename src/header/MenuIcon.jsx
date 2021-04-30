@@ -11,6 +11,7 @@ import "./MenuIcon.scss";
 const MenuIcon = () => {
   const firebase = useContext(FirebaseContext);
   const dispatch = useDispatch();
+  const userData = localStorage.authUser;
   const closeHambergerOnLinkSelect = () => {
     document.getElementById("navbarIcon").checked = false;
     handleChangeNavbarIcon();
@@ -55,20 +56,28 @@ const MenuIcon = () => {
         <NavLink to={CATEGORY.ELECTRONICS} onClick={closeHambergerOnLinkSelect}>
           <li>{CATEGORY.electronics}</li>
         </NavLink>
-        <hr />
-        <NavLink to={ROUTES.ORDER_HISTORY} onClick={closeHambergerOnLinkSelect}>
-          <li>Past Orders</li>
-        </NavLink>
-        <NavLink to={ROUTES.ORDER_HISTORY} onClick={closeHambergerOnLinkSelect}>
-          <li>Wishlist</li>
-        </NavLink>
-        <NavLink to={ROUTES.MY_PROFILE} onClick={closeHambergerOnLinkSelect}>
-          <li>Profile</li>
-        </NavLink>
-        <div className="menu-log-out">
-          <li className="hero-button log-out" onClick={handleSignOut}>
-            Sign Out
-          </li>
+        <div className={!!userData ? "visible" : "none"}>
+          <hr />
+          <NavLink
+            to={ROUTES.ORDER_HISTORY}
+            onClick={closeHambergerOnLinkSelect}
+          >
+            <li>Past Orders</li>
+          </NavLink>
+          <NavLink
+            to={ROUTES.ORDER_HISTORY}
+            onClick={closeHambergerOnLinkSelect}
+          >
+            <li>Wishlist</li>
+          </NavLink>
+          <NavLink to={ROUTES.MY_PROFILE} onClick={closeHambergerOnLinkSelect}>
+            <li>Profile</li>
+          </NavLink>
+          <div className="menu-log-out">
+            <li className="hero-button log-out" onClick={handleSignOut}>
+              SIGN OUT
+            </li>
+          </div>
         </div>
       </ul>
     </div>

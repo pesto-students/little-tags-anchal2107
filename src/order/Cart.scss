@@ -5,32 +5,32 @@
   min-height: 100%;
   margin: 2rem;
   background: #ffffff;
-  box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  // box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  // border-radius: 10px;
   display: flex;
   flex-direction: column;
   flex-grow: 0.6;
-  background: whitesmoke;
+  // background: whitesmoke;
 }
 .title {
   border-bottom: 1px solid #e1e8ee;
   padding: 20px 30px;
-  color: black;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   font-weight: 600;
 }
 
 .item {
   padding: 20px 30px;
-  height: 120px;
+  // height: 120px;
   display: flex;
+  border-bottom: 1px solid black;
   justify-content: space-around;
 }
 
-.item:nth-child(3) {
-  border-top: 1px solid #e1e8ee;
-  border-bottom: 1px solid #e1e8ee;
-}
+// .item:nth-child(3) {
+//   // border-top: 1px solid #e1e8ee;
+//   // border-bottom: 1px solid #e1e8ee;
+// }
 .buttons {
   position: relative;
   padding-top: 30px;
@@ -67,7 +67,9 @@
   }
 }
 .cart-product-image {
-  margin-right: 50px;
+  // margin-right: 50px;
+  width: 100px;
+  height: 100px;
 }
 
 .description {
@@ -93,8 +95,7 @@
   min-width: 83px;
   padding-top: 27px;
   text-align: center;
-  font-size: 16px;
-  color: #43484d;
+  // color: #43484d;
   font-weight: 300;
 }
 .col-6 {
@@ -103,18 +104,23 @@
 .summary {
   padding-left: 0.6rem;
   margin: 2rem 2rem 0 0;
-  border-radius: 10px;
-  border-radius: 10px;
   padding: 0.4rem;
-  background: whitesmoke;
   flex-grow: 0.4;
+  height: fit-content;
+  background-color: #2c2c2c;
   .summary-heading {
     padding: 0.6rem;
+    color: white;
+    font-weight: 600;
   }
   .summary-details {
     background: black;
     color: white;
     padding: 1rem;
+  }
+  a {
+    display: block;
+    text-align: center;
   }
 }
 .mb-10 {
@@ -126,15 +132,21 @@
   flex-wrap: wrap;
 }
 .checkout {
-  border: none;
+  // border: none;
+  // cursor: pointer;
+  // outline: none;
+  // background: white;
+  // color: black;
+  // width: 100%;
+  // padding: 12px 5px;
+  // font-size: 1rem;
+  // border-radius: 10px;
+  border: 2px solid white;
   cursor: pointer;
-  outline: none;
-  background: white;
-  color: black;
-  width: 100%;
-  padding: 12px 5px;
-  font-size: 1rem;
-  border-radius: 10px;
+  color: white;
+  background-color: black;
+  padding: 0.7rem 1.5rem;
+  font-size: 1.3rem;
 }
 .empty-cart-message {
   font-size: 1.2rem;

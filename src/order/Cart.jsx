@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { GrClose } from "react-icons/gr";
 import * as actions from "../constant/actionTypes";
+import { SHIP_DETAILS } from "./../constant/Routes";
 import withAuthorization from "./../session/withAuthorization";
 import { Link } from "react-router-dom";
 import "./Cart.scss";
@@ -42,7 +43,7 @@ function Cart() {
                 </div>
 
                 <div className="description">
-                  <span>{product.title}</span>
+                  <span className="font-size-13">{product.title}</span>
                   <span>Size: {product.size}</span>
                 </div>
 
@@ -60,7 +61,9 @@ function Cart() {
                   >
                     -
                   </button>
-                  <span className="quantity-number">{product.quantity}</span>
+                  <span className="quantity-number font-size-13">
+                    {product.quantity}
+                  </span>
                   <button
                     className="plus-btn"
                     type="button"
@@ -76,12 +79,14 @@ function Cart() {
                   </button>
                 </div>
 
-                <div className="total-price">$ {product.price}</div>
+                <div className="total-price font-size-13">
+                  $ {product.price}
+                </div>
               </div>
             ))}
           </div>
           <div className="summary">
-            <div className="summary-heading">Summary</div>
+            <div className="summary-heading">SUMMARY</div>
             <div className="summary-details">
               <div className="row mb-10">
                 <div className="col-6">Total Items:</div>
@@ -93,9 +98,9 @@ function Cart() {
                   ${parseFloat(totalPrice).toFixed(2)}
                 </div>
               </div>
-              <Link to="/ship-detail">
+              <Link to={SHIP_DETAILS}>
                 <button type="button" className="checkout">
-                  Checkout
+                  CHECKOUT
                 </button>
               </Link>
             </div>

@@ -4,6 +4,7 @@ import ProfileIcon from "./ProfileIcon";
 import SearchFilter from "./SearchFilter";
 import { NavLink } from "react-router-dom";
 import WishItemIcon from "./WishItemIcon";
+import logo from "./../assets/logoo.JPG";
 import "./Header.scss";
 import FirebaseContext from "./../firebase/FirebaseContext";
 import React, { useState, useEffect, useContext } from "react";
@@ -43,7 +44,8 @@ function Header() {
       <MenuIcon />
       <div className="logo">
         <NavLink to={"/"}>
-          <h1>Taggstar</h1>
+          {/* <h1>Taggstar</h1> */}
+          <img src={logo} alt="logo"/>
         </NavLink>
       </div>
       <SearchFilter />
