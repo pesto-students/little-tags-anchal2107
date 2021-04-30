@@ -42,7 +42,7 @@ function ShippingDetails() {
         <div className="shipping-details-container">
           <h1>Shipping Details</h1>
           <div className="form-input">
-            <label htmlFor="shipPersonName">Name</label>
+            <label htmlFor="shipPersonName">NAME</label>
             <input
               type="text"
               id="shipPersonName"
@@ -53,7 +53,7 @@ function ShippingDetails() {
             />
           </div>
           <div className="form-input">
-            <label htmlFor="shipPhoneNo">Phone No.</label>
+            <label htmlFor="shipPhoneNo">PHONE NO.</label>
             <input
               type="text"
               id="shipPhoneNo"
@@ -63,7 +63,7 @@ function ShippingDetails() {
             />
           </div>
           <div className="form-input">
-            <label htmlFor="shipAddress">Address</label>
+            <label htmlFor="shipAddress">ADDRESS</label>
             <textarea
               type="text"
               id="shipAddress"
@@ -85,7 +85,7 @@ function ShippingDetails() {
               className="payment-button"
               onClick={handleConfirmOrderClick}
             >
-              Confirm Order
+              CONFIRM ORDER
             </button>
           </div>
         </div>

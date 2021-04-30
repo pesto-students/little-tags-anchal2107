@@ -75,11 +75,14 @@
 }
 
 .logo {
-  margin: 0 1.5rem;
+  margin: 0 1.5rem 0 0;
   cursor: pointer;
   a {
     color: white;
     text-decoration: none;
+  }
+  img {
+    max-width: 180px;
   }
 }
 .cart-icon {
