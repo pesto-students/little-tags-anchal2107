@@ -126,7 +126,7 @@
   padding-left: 1rem;
   input {
     min-width: 30vw;
-    width: 50vw;
+    width: 45vw;
     height: 8vh;
     border: none;
     background: transparent;
@@ -141,11 +141,6 @@
   }
 }
 
-@media only screen and (max-width: 1300px) {
-  .search-filter input {
-    width: 45vw;
-  }
-}
 @media only screen and (max-width: 1200px) {
   .search-filter input {
     width: 40vw;
