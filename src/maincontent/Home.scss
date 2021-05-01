@@ -76,6 +76,11 @@
       width: 80%;
       height: 100%;
     }
+    img:hover {
+      transform: scale(1.02);
+      -webkit-transition: 0.3s ease-in-out;
+      transition: 0.3s ease-in-out;
+    }
   }
   .best-seller-card-container {
     display: flex;

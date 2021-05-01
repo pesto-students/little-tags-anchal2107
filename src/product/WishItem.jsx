@@ -18,7 +18,7 @@ const WishItem = ({
           </div>
         ) : (
           <div onClick={handleAddToWishList}>
-            <FcLikePlaceholder />
+            <FcLikePlaceholder className="grey-fill" />
           </div>
         )}
       </div>
@@ -27,17 +27,17 @@ const WishItem = ({
     return (
       <div className="m-1">
         <div className="wishlist-button-container">
-        {isAdded ? (
-          <div onClick={handleRemoveToWishList}>
-            {/* <AiFillHeart />  */}
-            REMOVE FROM WISHLIST
-          </div>
-        ) : (
-          <div onClick={handleAddToWishList}>
-            {/* <AiOutlineHeart /> */}
-            ADD TO WISHLIST
-          </div>
-        )}
+          {isAdded ? (
+            <div onClick={handleRemoveToWishList}>
+              {/* <AiFillHeart />  */}
+              REMOVE FROM WISHLIST
+            </div>
+          ) : (
+            <div onClick={handleAddToWishList}>
+              {/* <AiOutlineHeart /> */}
+              ADD TO WISHLIST
+            </div>
+          )}
         </div>
       </div>
     );
