@@ -85,6 +85,9 @@
   .best-seller-card-container {
     display: flex;
     margin-top: 1rem;
+    span {
+      width: 33%;
+    }
   }
   .best-seller-card-container span:nth-child(odd) {
     background: #dd1212;
@@ -122,10 +125,10 @@
     -ms-filter: grayscale(100%);
     -o-filter: grayscale(100%);
     filter: grayscale(100%);
-    opacity: 0.6;
+    opacity: 0.8;
     -webkit-transition: 0.5s;
     transition: 0.5s;
-    height: 5rem;
+    height: 3rem;
     max-width: 17rem;
     margin: 2rem;
     &:hover {
@@ -136,5 +139,41 @@
       filter: grayscale(0%);
       opacity: 1;
     }
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .hero-content {
+    margin-left: 0;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .best-seller-main-container {
+    padding: 1rem;
+    .best-seller-card-container {
+      span {
+        width: 50%;
+      }
+    }
+    .best-seller-card-container span:last-child {
+      display: none;
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .best-seller-main-container {
+    padding: 1rem;
+    .best-seller-card-container {
+      span {
+        width: 100%;
+      }
+    }
+    .best-seller-card-container span:last-child, .best-seller-card-container span:nth-child(2) {
+      display: none;
+    }
+  }
+  .row div:nth-child(even){
+    display: none;
   }
 }

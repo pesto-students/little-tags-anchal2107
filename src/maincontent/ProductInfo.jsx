@@ -5,7 +5,7 @@ function ProductInfo() {
   return (
     <div className="product-category-home">
       <h2>CATEGORIES TO BAG</h2>
-      <div style={{ height: "100vh" }} className="flex flex-wrap">
+      <div className="flex flex-wrap h-100v category-container">
         <CategoryCard
           image="https://i.postimg.cc/MGHsRdMc/mens-catg.jpg"
           categoryName="MENS"

@@ -40,8 +40,28 @@
   }
 }
 
+@media screen and (max-width: 1000px) {
+  .view-profile-container {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 900px) {
+  .view-profile-container {
+    width: 68%;
+  }
+}
+@media screen and (max-width: 800px) {
+  .view-profile-container {
+    width: 76%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .view-profile-container {
+    width: 84%;
+  }
+}
 @media screen and (max-width: 600px) {
   .view-profile-container {
-    width: 96%;
+    width: 92%;
   }
 }

@@ -12,7 +12,7 @@ const SignUpModalContent = ({
 }) => {
   return (
     <div className="card center z-1">
-      <div className="flex">
+      <div className="flex modal-container">
         <div className="flex flex-col info-div">
           <h2>Welcome to</h2>
           <img src={logo} alt="logo"/>

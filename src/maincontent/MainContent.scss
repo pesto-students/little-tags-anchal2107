@@ -13,11 +13,6 @@
     margin: 2rem 0;
     font-size: 50px;
   }
-  .grid-container {
-    display: flex;
-    justify-content: center;
-    padding: 0 10px;
-  }
 }
 
 .w-45 {
@@ -25,6 +20,9 @@
 }
 .w-55 {
   width: 55%;
+}
+.h-100v {
+  height: 100vh;
 }
 .product-category {
   a {
@@ -51,8 +49,13 @@
 
 @media screen and (max-width: 600px) {
   .product-category-home {
-    .grid-container {
+    .category-container {
+      height: auto;
       flex-direction: column;
     }
+  }
+  .w-45,
+  .w-55 {
+    width: 100%;
   }
 }
