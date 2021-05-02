@@ -26,7 +26,7 @@ const BestSeller = () => {
   return (
     <div className="best-seller-main-container app">
       <div className="best-seller-child-container flex flex-col m-1">
-        <h1>BEST SELLERS</h1>
+        <h1>BEST SELLER</h1>
         <div className="best-seller-card-container">{content}</div>
       </div>
     </div>
