@@ -1,21 +1,12 @@
 .product-container {
   display: flex;
-  // margin: 2rem 5rem;
-  // background: whitesmoke;
-  background: linear-gradient(
-    to bottom,
-    #2c2c2c 0%,
-    #000 100%,
-    #2c2c2c 30%,
-    #2c2c2c 100%
-  );
   padding: 2rem;
   color: #7e7e7e;
-  // border-radius: 10px;
 }
 .product-carousel-container {
   width: 50%;
   padding: 1rem;
+  box-shadow: 0 4px 17px 1px #3c3c3c;
 }
 .product-info-container {
   display: flex;
@@ -23,6 +14,7 @@
   width: 50%;
   text-align: left;
   padding: 1rem;
+  color: #232121;
   h2,
   h3,
   p {
@@ -33,7 +25,6 @@
     font-size: 1.2rem;
   }
   h2 {
-    color: white;
     font-size: 2rem;
   }
   h3 {
@@ -71,11 +62,8 @@
 }
 .cart-container {
   display: flex;
-  // background-color: #080808;
-  border: 2px solid white;
-  color: white;
-  // border-radius: 5px;
-  // width: 32%;
+  color: #232121;
+  border: 2px solid black;
   padding: 0.6rem 1.5rem;
   align-items: center;
   margin: 0.6rem 0;
@@ -84,12 +72,6 @@
     font-weight: 600;
     font-size: 1.2rem;
   }
-  // svg {
-  //   margin: 0 0.5rem;
-  // }
-  // &:hover {
-  //   background-color: black;
-  // }
 }
 .align-left {
   text-align: left;
@@ -221,12 +203,28 @@ input:focus {
   color: red;
 }
 
+@media screen  and (max-width: 1000px){
+  .mislan-container .mislan-item {
+    svg {
+      font-size: 3rem;
+    }
+  }
+}
+@media screen  and (max-width: 900px){
+  .mislan-container .mislan-item {
+    display: block;
+    margin: 0;
+  }
+}
 @media screen and (max-width: 600px) {
   .product-container {
     flex-direction: column;
     align-items: center;
     padding: 0;
     margin: 2rem;
+  }
+  .product-carousel-container {
+    box-shadow: none;
   }
   .product-info-container {
     width: 100%;
@@ -239,6 +237,5 @@ input:focus {
   }
   .cart-container {
     align-self: center;
-    // width: 35%;
   }
 }
