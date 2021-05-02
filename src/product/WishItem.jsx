@@ -1,6 +1,5 @@
 import "./WishItem.scss";
 import PropTypes from "prop-types";
-// import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { FcLike, FcLikePlaceholder } from "react-icons/fc";
 
 const WishItem = ({
@@ -29,12 +28,10 @@ const WishItem = ({
         <div className="wishlist-button-container">
           {isAdded ? (
             <div onClick={handleRemoveToWishList}>
-              {/* <AiFillHeart />  */}
               REMOVE FROM WISHLIST
             </div>
           ) : (
             <div onClick={handleAddToWishList}>
-              {/* <AiOutlineHeart /> */}
               ADD TO WISHLIST
             </div>
           )}

@@ -5,6 +5,7 @@ import * as actions from "../constant/actionTypes";
 import withAuthorization from "../session/withAuthorization";
 import { Link } from "react-router-dom";
 import FirebaseContext from "./../firebase/FirebaseContext";
+import "./WishItemList.scss";
 
 const WishItemList = () => {
   const firebase = useContext(FirebaseContext);
@@ -48,41 +49,36 @@ const WishItemList = () => {
   };
 
   return (
-    <div>
+    <div className="flex flex-col product-list-container">
+      <h1>Wish List</h1>
+      <hr />
       {wishData.length > 0 ? (
-        <div>
-          <div className="cart-div-container">
-            <div className="shopping-cart">
-              {wishData.map((product) => (
-                <div key={product.id} className="item">
-                  <div
-                    className="buttons"
-                    onClick={() => WishListOperations(product.id)}
-                  >
-                    <FcLike />
-                  </div>
-                  <div className="cart-product-image">
-                    <Link to={`/product/${product.id}`}>
-                      <img
-                        src={product.image}
-                        alt="product"
-                        height="100"
-                        width="100"
-                      />{" "}
-                    </Link>
-                  </div>
-                  <div className="description">
-                    <span>{product.title}</span>
-                    <span>Size: {product.size}</span>
-                  </div>
-                  <div className="total-price">$ {product.price}</div>
+        <div className="product-list">
+          {wishData.map(({ id, image, title, price }) => (
+            <div key={id} className="product-card-container">
+              <Link to={`/product/${id}`}>
+                <div>
+                  <img src={image} alt="product" height="330" />
                 </div>
-              ))}
+                <div>
+                  <h3 className="overflow" title={title}>
+                    {title}
+                  </h3>
+                </div>
+              </Link>
+              <div className="wishitem">
+                <h3 className="font-normal">$ {price}</h3>
+                <div onClick={() => WishListOperations(id)}>
+                  <FcLike />
+                </div>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       ) : (
-        <div className="empty-cart-message">No Wish List!</div>
+        <div className="empty-cart-message">
+          You didn't added any items in Wishlist.
+        </div>
       )}
     </div>
   );
