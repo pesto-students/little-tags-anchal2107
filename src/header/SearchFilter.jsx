@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { FaSearch } from "react-icons/fa";
-import { useHistory  } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import * as actions from "../constant/actionTypes";
 
 const ENTER_KEYCHAR_CODE = 13;
@@ -18,7 +18,7 @@ function SearchFilter() {
     });
     history.push(`/products/search/product-title=${searchText}`);
     setSearchText("");
-  }
+  };
   const handleSearchKeyPress = (e) => {
     if (e.charCode === ENTER_KEYCHAR_CODE) {
       handleSearchOnClick();
@@ -34,7 +34,7 @@ function SearchFilter() {
         value={searchText}
         onKeyPress={handleSearchKeyPress}
       />
-      <FaSearch onClick={handleSearchOnClick}/>
+      <FaSearch onClick={handleSearchOnClick} />
     </div>
   );
 }

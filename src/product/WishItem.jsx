@@ -27,20 +27,15 @@ const WishItem = ({
       <div className="m-1">
         <div className="wishlist-button-container">
           {isAdded ? (
-            <div onClick={handleRemoveToWishList}>
-              REMOVE FROM WISHLIST
-            </div>
+            <div onClick={handleRemoveToWishList}>REMOVE FROM WISHLIST</div>
           ) : (
-            <div onClick={handleAddToWishList}>
-              ADD TO WISHLIST
-            </div>
+            <div onClick={handleAddToWishList}>ADD TO WISHLIST</div>
           )}
         </div>
       </div>
     );
   }
 };
-//export default WishItem;
 export default WishItem;
 
 WishItem.propTypes = {

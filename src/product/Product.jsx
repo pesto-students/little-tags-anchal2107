@@ -59,7 +59,6 @@ function Product() {
         };
       }
     }
-    // pop up sign up model
   };
 
   const isItemInWishList = () => {

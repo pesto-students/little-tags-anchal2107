@@ -4,7 +4,7 @@ import products from "../../data/products.json";
 const initialState = {
   product: {},
   filteredProducts: [],
-  products
+  products,
 };
 
 const productsReducer = (state = initialState, action) => {

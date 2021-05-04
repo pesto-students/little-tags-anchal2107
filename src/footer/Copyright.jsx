@@ -10,7 +10,7 @@ import {
   FaInstagram,
   FaTwitter,
   FaLinkedin,
-  FaYoutube
+  FaYoutube,
 } from "react-icons/fa";
 
 function Copyright() {

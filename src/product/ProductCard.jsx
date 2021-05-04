@@ -6,6 +6,7 @@ import WishItem from "./WishItem";
 import { useDispatch, useSelector } from "react-redux";
 import * as actions from "../constant/actionTypes";
 import FirebaseContext from "./../firebase/FirebaseContext";
+
 function ProductCard({ id, title, image, price }) {
   const dispatch = useDispatch();
   const [isWishAdded, setIsWishAdded] = useState(false);
@@ -46,7 +47,6 @@ function ProductCard({ id, title, image, price }) {
         };
       }
     }
-    // pop up sign in model
   };
   const isItemInWishList = () => {
     if (authUser != null && authUser.authUser != null) {

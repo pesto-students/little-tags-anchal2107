@@ -19,14 +19,14 @@ function Cart() {
       {products.length > 0 ? (
         <div className="cart-div-container">
           <div className="shopping-cart">
-            {products.map((product) => (
-              <div key={product.id} className="item">
+            {products.map(({ id, image, title, size, price, quantity }) => (
+              <div key={id} className="item">
                 <div
                   className="buttons"
                   onClick={() =>
                     dispatch({
                       type: actions.REMOVE_FROM_CART,
-                      payload: product.id,
+                      payload: id,
                     })
                   }
                 >
@@ -34,17 +34,12 @@ function Cart() {
                 </div>
 
                 <div className="cart-product-image">
-                  <img
-                    src={product.image}
-                    alt="product"
-                    height="100"
-                    width="100"
-                  />
+                  <img src={image} alt="product" height="100" width="100" />
                 </div>
 
                 <div className="description">
-                  <span className="font-size-13">{product.title}</span>
-                  <span>Size: {product.size}</span>
+                  <span className="font-size-13">{title}</span>
+                  <span>Size: {size}</span>
                 </div>
 
                 <div className="quantity">
@@ -55,14 +50,14 @@ function Cart() {
                     onClick={() =>
                       dispatch({
                         type: actions.DECRESE_QUANTITY,
-                        payload: product.id,
+                        payload: id,
                       })
                     }
                   >
                     -
                   </button>
                   <span className="quantity-number font-size-13">
-                    {product.quantity}
+                    {quantity}
                   </span>
                   <button
                     className="plus-btn"
@@ -71,7 +66,7 @@ function Cart() {
                     onClick={() =>
                       dispatch({
                         type: actions.INCRESE_QUANTITY,
-                        payload: product.id,
+                        payload: id,
                       })
                     }
                   >
@@ -79,9 +74,7 @@ function Cart() {
                   </button>
                 </div>
 
-                <div className="total-price font-size-13">
-                  $ {product.price}
-                </div>
+                <div className="total-price font-size-13">$ {price}</div>
               </div>
             ))}
           </div>

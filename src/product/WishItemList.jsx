@@ -5,7 +5,6 @@ import * as actions from "../constant/actionTypes";
 import withAuthorization from "../session/withAuthorization";
 import { Link } from "react-router-dom";
 import FirebaseContext from "./../firebase/FirebaseContext";
-import "./WishItemList.scss";
 
 const WishItemList = () => {
   const firebase = useContext(FirebaseContext);
@@ -83,4 +82,5 @@ const WishItemList = () => {
     </div>
   );
 };
+
 export default withAuthorization(WishItemList);
