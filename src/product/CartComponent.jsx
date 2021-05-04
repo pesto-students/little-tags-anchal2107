@@ -1,16 +1,12 @@
 import PropTypes from "prop-types";
-// import { TiShoppingCart } from "react-icons/ti";
 
 function CartComponent({ handleAddToCart }) {
   return (
-    <>
-      <div className="mt-1" >
-        {/* <TiShoppingCart /> */}
-        <div className="cart-container" onClick={handleAddToCart}>
-          <div>ADD TO CART</div>
-        </div>
+    <div className="mt-1">
+      <div className="cart-container" onClick={handleAddToCart}>
+        <div>ADD TO CART</div>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -22,7 +22,7 @@ function Header() {
       type: actions.UPDATE_WISH_LIST_COUNT,
       productsCount: WishCount,
     });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const getItemInWishList = () => {
     if (authUser != null && authUser.authUser != null) {
@@ -45,7 +45,7 @@ function Header() {
       <div className="logo">
         <NavLink to={"/"}>
           {/* <h1>Taggstar</h1> */}
-          <img src={logo} alt="logo"/>
+          <img src={logo} alt="logo" />
         </NavLink>
       </div>
       <SearchFilter />

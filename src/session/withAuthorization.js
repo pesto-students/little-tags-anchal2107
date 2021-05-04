@@ -31,7 +31,6 @@ const withAuthorization = (Component) => {
   });
   const component1 = connect(mapStateToProps)(NewComponent);
   return withRouter(component1);
-  // return withRouter(connect(mapStateToProps)(NewComponent))
 };
 
 export default withAuthorization;

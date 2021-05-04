@@ -15,10 +15,12 @@ const SignUpModalContent = ({
       <div className="flex modal-container">
         <div className="flex flex-col info-div">
           <h2>Welcome to</h2>
-          <img src={logo} alt="logo"/>
+          <img src={logo} alt="logo" />
         </div>
-        <div className="signup-container">          
-          <div className="close-div"><GrClose onClick={handleCloseModal} /></div>
+        <div className="signup-container">
+          <div className="close-div">
+            <GrClose onClick={handleCloseModal} />
+          </div>
           <div className="flex modal-header">
             <h2 className="flex-1">Sign in to Proceed</h2>
           </div>
