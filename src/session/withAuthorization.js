@@ -1,19 +1,22 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import FirebaseContext from "../firebase/FirebaseContext";
-import * as ROUTES from "./../constant/Routes";
+import SignUpModal from "../header/authentication/SignUpModal";
+import * as ROUTES from "../constant/Routes";
 
 const withAuthorization = (Component) => {
   const NewComponent = (props) => {
     const firebase = useContext(FirebaseContext);
+    const [showLogin, setShowLogin] = useState(true);
+    const showLoginModal = () => setShowLogin(!showLogin);
 
     const next = (authUser) => {
       if (!authUser) {
-        props.history.push(ROUTES.SIGN_IN);
+        props.history.push(ROUTES.HOME);
       }
     };
-    const fallback = () => props.history.push(ROUTES.SIGN_IN);
+    const fallback = () => {};
     useEffect(() => {
       firebase.onAuthChangeListener(next, fallback);
       // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -22,7 +25,10 @@ const withAuthorization = (Component) => {
     return props.authUser ? (
       <Component {...props} />
     ) : (
-      <p>You need to sign in to access this page </p>
+      <>
+        <h1>You need to sign in to access this page </h1>
+        {showLogin ? <SignUpModal handleCloseModal={showLoginModal} /> : null}
+      </>
     );
   };
 

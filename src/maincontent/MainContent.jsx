@@ -9,7 +9,6 @@ import Product from "../product/Product";
 import Cart from "../order/Cart";
 import OrderHistory from "../order/OrderHistory";
 import ThankYou from "../order/ThankYou";
-import SignUpModal from "../header/authentication/SignUpModal";
 import WishItemList from "../product/WishItemList";
 import Profile from "../profile/Profile";
 
@@ -27,7 +26,6 @@ function MainContent() {
         <Route path={ROUTES.PRODUCT_LIST} component={ProductList} />
         <Route path={ROUTES.PRODUCT_DETAIL} exact component={Product} />
         <Route path={ROUTES.CART} component={Cart} />
-        <Route path={ROUTES.SIGN_IN} component={SignUpModal} />
         <Route path={ROUTES.ORDER_HISTORY} component={OrderHistory} />
         <Route path={ROUTES.THANK_YOU} component={ThankYou} />
         <Route path={ROUTES.LANDING} component={Home} />

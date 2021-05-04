@@ -9,6 +9,5 @@ export const PRODUCT_SEARCH = "/products/search/product-title=:search";
 export const PRODUCT_CATAGORY_SEARCH = "/products/:search";
 export const ORDER_HISTORY = "/order-history";
 export const THANK_YOU = "/thank-you";
-export const SIGN_IN = "/signin";
 export const WISH_ITEM_LIST = "/wish-list";
 export const MY_PROFILE = "/profile";
