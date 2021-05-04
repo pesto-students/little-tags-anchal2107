@@ -1,20 +1,24 @@
+import React, { useState, useEffect, useContext } from "react";
 import MenuIcon from "./MenuIcon";
 import CartIcon from "./CartIcon";
 import ProfileIcon from "./ProfileIcon";
 import SearchFilter from "./SearchFilter";
 import { NavLink } from "react-router-dom";
 import WishItemIcon from "./WishItemIcon";
-import logo from "./../assets/logoo.JPG";
-import "./Header.scss";
 import FirebaseContext from "./../firebase/FirebaseContext";
-import React, { useState, useEffect, useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as actions from "../constant/actionTypes";
+import logo from "./../assets/logoo.JPG";
+import "./Header.scss";
+import SignUpModal from "./authentication/SignUpModal";
 
 function Header() {
   const firebase = useContext(FirebaseContext);
   const authUser = useSelector((state) => state.sessionState);
   const [WishCount, setWishCount] = useState(0);
+  const [showLogin, setShowLogin] = useState(false);
+  const showLoginModal = () => setShowLogin(!showLogin);
+
   const dispatch = useDispatch();
   useEffect(() => {
     getItemInWishList();
@@ -29,7 +33,6 @@ function Header() {
       firebase.getWishListData(authUser.authUser.uid).then((snapshot) => {
         const wishProducts = snapshot.val();
         if (wishProducts != null) {
-          console.log(` kesys count ${Object.keys(wishProducts).length}`);
           setWishCount(Object.keys(wishProducts).length);
           return WishCount;
         }
@@ -41,15 +44,15 @@ function Header() {
 
   return (
     <div className="header">
+      {showLogin ? <SignUpModal handleCloseModal={showLoginModal}/> : null}
       <MenuIcon />
       <div className="logo">
         <NavLink to={"/"}>
-          {/* <h1>Taggstar</h1> */}
           <img src={logo} alt="logo" />
         </NavLink>
       </div>
       <SearchFilter />
-      <ProfileIcon />
+      <ProfileIcon showLoginModal={showLoginModal}/>
       <WishItemIcon />
       <CartIcon />
     </div>

@@ -1,17 +1,12 @@
 import React, { useState, useContext } from "react";
-import { withRouter, useHistory } from "react-router-dom";
+import PropTypes from "prop-types";
 import FirebaseContext from "./../../firebase/FirebaseContext";
 import SignUpModalContent from "./SignUpModalContent";
 import "./SignUpModal.scss";
 
-function SignUpModal() {
+function SignUpModal({ handleCloseModal }) {
   const firebase = useContext(FirebaseContext);
   const [errorMessage, setErrorMessage] = useState("");
-  const history = useHistory();
-  const handleCloseModal = () => {
-    document.getElementById("signUpModal").style.display = "none";
-    history.push("/");
-  };
   const handleGoogleSignIn = () => {
     firebase
       .doGoogleSignIn()
@@ -25,7 +20,6 @@ function SignUpModal() {
       })
       .then(() => {
         handleCloseModal();
-        history.push("/");
       })
       .catch((error) => {
         setErrorMessage(error.message);
@@ -44,7 +38,6 @@ function SignUpModal() {
       })
       .then(() => {
         handleCloseModal();
-        history.push("/");
       })
       .catch((error) => {
         setErrorMessage(error.message);
@@ -65,4 +58,12 @@ function SignUpModal() {
   );
 }
 
-export default withRouter(SignUpModal);
+export default SignUpModal;
+
+SignUpModal.propTypes = {
+  showLoginModal: PropTypes.func,
+};
+
+SignUpModal.defaultProps = {
+  showLoginModal: () => {},
+};
