@@ -19,11 +19,7 @@ const WishItemList = () => {
         for (let i in wishProducts) {
           setwishData((items) => [...items, wishProducts[i]]);
         }
-      });
-      dispatch({
-        type: actions.REFRESH_WISH_LIST,
-        payload: wishData,
-      });
+      }); 
     }
   };
   useEffect(() => {
