@@ -47,17 +47,11 @@ const wishReducer = (state = initialState, action) => {
       return localData;
     case action.REFRESH_WISH_LIST:
       const { listProduct, userUID, pCount } = action.payload;
-      console.log(
-        ` is reducer ${userUID} ${pCount} product:: ${JSON.stringify(
-          listProduct
-        )}`
-      )(
-        (localData = {
+        localData = {
           products: listProduct,
           productsCount: pCount,
           uid: userUID,
-        })
-      );
+        }      
       localStorage.setItem(localStorages.WISHLIST, JSON.stringify(localData));
       return localData;
     case actions.RESET_WISH_LIST:
