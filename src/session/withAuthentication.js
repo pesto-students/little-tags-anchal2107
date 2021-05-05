@@ -6,7 +6,7 @@ import * as localStorages from "../constant/localStorage";
 
 const withAuthentication = (Component) => {
   const NewComponent = (props) => {
-    const firebase = useContext(FirebaseContext);    
+    const firebase = useContext(FirebaseContext);
     const saveToLocalStorage = (authUser) => {
       localStorage.setItem("authUser", JSON.stringify(authUser));
     };
@@ -28,18 +28,12 @@ const withAuthentication = (Component) => {
           products.push(wishProducts[i]);
         }
         productsCount = products.length;
-        console.log(
-          `${uid} in getitemwishlid out ${JSON.stringify(
-            products
-          )} productcount::: ${productsCount}}`
-        );
-
         let localData = {
           products: products,
           productsCount: productsCount,
           uid: uid,
-        }
-        localStorage.setItem(localStorages.WISHLIST, JSON.stringify(localData));           
+        };
+        localStorage.setItem(localStorages.WISHLIST, JSON.stringify(localData));
       }
     };
 
