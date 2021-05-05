@@ -6,7 +6,9 @@ let initialState = {
   products: [],
   productsCount: 0,
 };
-
+if (localStorage.getItem(localStorages.WISHLIST)) {
+  initialState = JSON.parse(localStorage.getItem(localStorages.WISHLIST));
+}
 const wishReducer = (state = initialState, action) => {
   let localData;
   switch (action.type) {
@@ -35,7 +37,7 @@ const wishReducer = (state = initialState, action) => {
       const filteredProduct = state.products.filter(
         (p) => p.id !== action.payload
       );
-      const productsCount = filteredProduct.length;
+      let productsCount = filteredProduct.length;
       localData = {
         ...state,
         products: filteredProduct,
@@ -44,20 +46,18 @@ const wishReducer = (state = initialState, action) => {
       localStorage.setItem(localStorages.WISHLIST, JSON.stringify(localData));
       return localData;
     case action.REFRESH_WISH_LIST:
-      let products = action.products;
-      let productsCount1 = state.products.length + 1;
-      localData = {
-        ...state,
-        products: [...products],
-        productsCount1,
-      };
-      localStorage.setItem(localStorages.WISHLIST, JSON.stringify(localData));
-      return localData;
-    case actions.UPDATE_WISH_LIST_COUNT:
-      localData = {
-        ...state,
-        productsCount: action.productsCount,
-      };
+      const { listProduct, userUID, pCount } = action.payload;
+      console.log(
+        ` is reducer ${userUID} ${pCount} product:: ${JSON.stringify(
+          listProduct
+        )}`
+      )(
+        (localData = {
+          products: listProduct,
+          productsCount: pCount,
+          uid: userUID,
+        })
+      );
       localStorage.setItem(localStorages.WISHLIST, JSON.stringify(localData));
       return localData;
     case actions.RESET_WISH_LIST:
