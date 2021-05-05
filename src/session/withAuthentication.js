@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { setAuthUser } from "../actions";
 import FirebaseContext from "../firebase/FirebaseContext";
 import * as localStorages from "../constant/localStorage";
+
 const withAuthentication = (Component) => {
   const NewComponent = (props) => {
     const firebase = useContext(FirebaseContext);    
