@@ -31,6 +31,10 @@ const MenuIcon = () => {
       type: actions.RESET_CART,
       payload: null,
     });
+    dispatch({
+      type: actions.RESET_WISH_LIST,
+      payload: null,
+    });   
   };
   return (
     <div className="menu-toggle">
