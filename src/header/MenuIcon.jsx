@@ -69,7 +69,7 @@ const MenuIcon = () => {
             <li>Past Orders</li>
           </NavLink>
           <NavLink
-            to={ROUTES.ORDER_HISTORY}
+            to={ROUTES.WISH_ITEM_LIST}
             onClick={closeHambergerOnLinkSelect}
           >
             <li>Wishlist</li>
