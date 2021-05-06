@@ -21,7 +21,7 @@ function PaymentCard() {
 
   const options = {
     key: "rzp_test_gbkbZiL7NeddJL",
-    amount: totalPrice * 100,
+    amount:parseInt( totalPrice * 100),
     name: "Little Tags",
     description: "Your all shopping needs",
     image: "https://cdn.razorpay.com/logos/7K3b6d18wHwKzL_medium.png",
