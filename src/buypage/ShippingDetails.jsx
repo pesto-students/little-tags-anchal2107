@@ -37,7 +37,7 @@ function ShippingDetails() {
     ) {
       return;
     }
-    debugger;
+  
     const fullAddress = `${address} ${apt} ${city} ${state}-${zipCode}`;
     if (document.getElementById("shipDefaultAddress").checked) {
       firebase.setDefaultAddress(authUser.authUser.uid, fullAddress);
