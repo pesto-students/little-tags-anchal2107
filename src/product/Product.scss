@@ -194,6 +194,7 @@ input:focus {
     border: 1px solid black;
     cursor: pointer;
     margin: 0 0.2rem;
+    user-select: none;
   }
   .page-item:hover {
     color: red;

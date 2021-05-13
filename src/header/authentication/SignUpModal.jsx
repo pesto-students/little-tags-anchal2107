@@ -61,9 +61,9 @@ function SignUpModal({ handleCloseModal }) {
 export default SignUpModal;
 
 SignUpModal.propTypes = {
-  showLoginModal: PropTypes.func,
+  handleCloseModal: PropTypes.func,
 };
 
 SignUpModal.defaultProps = {
-  showLoginModal: () => {},
+  handleCloseModal: () => {},
 };
