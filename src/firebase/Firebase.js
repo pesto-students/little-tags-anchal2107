@@ -46,18 +46,33 @@ class Firebase {
     this.db.ref(`/users/${uid}/WishList/${product.id}`).update(product);
   };
 
-  deleteWishItem = (uid, productid) => {
-    this.db.ref(`/users/${uid}/WishList/${productid}`).remove();
+  deleteWishItem = (uid, productId) => {
+    this.db.ref(`/users/${uid}/WishList/${productId}`).remove();
   };
 
   setDefaultAddress = (uid, address) => {
-    this.db.ref(`/users/${uid}/defaultAddress/`).set(address);
-  };
+    const currentTimeStamp = Math.floor(Date.now() / 1000);
+    localStorage.lastAddressId = currentTimeStamp;
+    this.db.ref(`/users/${uid}/addresses/${currentTimeStamp}/`).set(address);
+  }
 
-  getDefaultAddress = async (uid) => {
-    let ref = this.db.ref(`/users/${uid}/defaultAddress/`);
+  getAddressList = async (uid) => {
+    const ref = this.db.ref(`/users/${uid}/addresses/`);
     return await ref.once("value");
-  };
+  }
+
+  getAddressDetail = async (uid, addressId) => {
+    const ref = this.db.ref(`/users/${uid}/addresses/${addressId}/`);
+    return await ref.once("value");
+  }
+
+  updateAddressDetail = (uid, addressId, address) => {
+    this.db.ref(`/users/${uid}/addresses/${addressId}/`).set(address);
+  }
+
+  deleteAddress = (uid, addressId) => {
+    this.db.ref(`/users/${uid}/addresses/${addressId}`).remove();
+  }
 
   doSignOut = () => this.auth.signOut();
 

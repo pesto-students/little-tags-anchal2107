@@ -34,7 +34,8 @@ const MenuIcon = () => {
     dispatch({
       type: actions.RESET_WISH_LIST,
       payload: null,
-    });   
+    });
+    localStorage.removeItem("lastAddressId");
   };
   return (
     <div className="menu-toggle">

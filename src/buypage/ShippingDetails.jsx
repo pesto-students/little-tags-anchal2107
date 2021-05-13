@@ -1,176 +1,206 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import FirebaseContext from "./../firebase/FirebaseContext";
+import Address from "./Address";
+import * as routes from "./../constant/Routes";
 import * as actions from "../constant/actionTypes";
 import "./ShippingDetails.scss";
 
 function ShippingDetails() {
   const firebase = useContext(FirebaseContext);
-  const authUser = useSelector((state) => state.sessionState);
-  const [name, setName] = useState("");
-  const [address, setAddress] = useState("");
-  const [phoneNo, setPhoneNo] = useState("");
-  const [city, setCity] = useState("");
-  const [apt, setApt] = useState("");
-  const [zipCode, setZipCode] = useState("");
-  const [state, setState] = useState("");
-  const dispatch = useDispatch();
   const history = useHistory();
+  const dispatch = useDispatch();
+  const [openAddressModal, setOpenAddressModal] = useState(false);
+  const [addressData, setAddressData] = useState([]);
+  const [addressId, setAddressId] = useState("");
+
+  const handleCloseAddressModal = () => {
+    setAddressId("");
+    setOpenAddressModal(false);
+  };
+
+  const handleProceedCheckout = () => {
+    let id;
+    const elements = document.getElementsByName("address");
+    for (let i = 0, l = elements.length; i < l; i++) {
+      if (elements[i].checked) {
+        id = elements[i].parentElement.id;
+        break;
+      }
+    }
+    const name = document.getElementById(`name${id}`).textContent;
+    const phoneNo = document.getElementById(`phoneNo${id}`).textContent;
+    const address = document.getElementById(`address${id}`).textContent;
+    dispatch({
+      type: actions.ADD_SHIP_DETAILS,
+      payload: { name, phoneNo, address },
+    });
+    history.push(routes.ORDER_CONFIRMATION);
+  };
+
+  const removeAddress = (e) => {
+    const addressId = e.target.parentElement.parentElement.id;
+    firebase.deleteAddress(
+      JSON.parse(localStorage.getItem("authUser")).uid,
+      addressId
+    );
+    if (addressData != null && addressData.length > 0) {
+      const newAddressData = addressData.filter((item) => {
+        return item.i !== addressId;
+      });
+      setAddressData(newAddressData);
+    } else {
+      setAddressData([]);
+    }
+  };
+
+  const editAddress = (e) => {
+    const addressId = e.target.parentElement.parentElement.id;
+    setAddressId(addressId);
+    setOpenAddressModal(true);
+  };
 
   useEffect(() => {
-    firebase.getDefaultAddress(authUser.authUser.uid).then((snapshot) => {
-      const dbUser = snapshot.val();
-      setAddress(dbUser);
-    });
+    //setAddressData([]);
+    firebase
+      .getAddressList(JSON.parse(localStorage.getItem("authUser")).uid)
+      .then((snapshot) => {
+        const dbUser = snapshot.val();
+        for (let i in dbUser) {
+          const {
+            address,
+            apt,
+            city,
+            isDefaultAddress,
+            name,
+            phoneNo,
+            state,
+            zipCode,
+          } = dbUser[i];
+          setAddressData((arr) => [
+            ...arr,
+            {
+              address,
+              apt,
+              city,
+              isDefaultAddress,
+              name,
+              phoneNo,
+              state,
+              zipCode,
+              i,
+            },
+          ]);
+        }
+      });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleConfirmOrderClick = () => {
-    if (
-      name === "" ||
-      address === "" ||
-      phoneNo === "" ||
-      city === "" ||
-      zipCode === "" ||
-      state === ""
-    ) {
-      return;
+  useEffect(() => {
+    if (!openAddressModal && !!localStorage.lastAddressId) {
+      let id = localStorage.lastAddressId;
+      firebase
+        .getAddressDetail(JSON.parse(localStorage.getItem("authUser")).uid, id)
+        .then((snapshot) => {
+          const result = snapshot.val();
+          const {
+            address,
+            apt,
+            city,
+            isDefaultAddress,
+            name,
+            phoneNo,
+            state,
+            zipCode,
+          } = result;
+          setAddressData((arr) => [
+            ...arr,
+            {
+              i: id,
+              address,
+              apt,
+              city,
+              isDefaultAddress,
+              name,
+              phoneNo,
+              state,
+              zipCode,
+            },
+          ]);
+        });
     }
-  
-    const fullAddress = `${address} ${apt} ${city} ${state}-${zipCode}`;
-    if (document.getElementById("shipDefaultAddress").checked) {
-      firebase.setDefaultAddress(authUser.authUser.uid, fullAddress);
-    }
-    dispatch({
-      type: actions.ADD_SHIP_DETAILS,
-      payload: { name, phoneNo, address: fullAddress },
-    });
-    history.push("/confirm-order");
-  };
+    localStorage.removeItem("lastAddressId");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [openAddressModal]);
 
-  return (
-    <div className="app">
-      <form action="" method="post">
-        <div className="shipping-details-container">
-          <h1>Shipping Details</h1>
-          <div className="form-input">
-            <label htmlFor="shipPersonName">
-              NAME<label className="red">*</label>
-            </label>
-            <input
-              type="text"
-              id="shipPersonName"
-              placeholder="Name"
-              onChange={(e) => setName(e.target.value)}
-              autoFocus
-              required
-            />
-          </div>
-          <div className="form-input">
-            <label htmlFor="shipPhoneNo">
-              PHONE NO.<label className="red">*</label>
-            </label>
-            <input
-              type="text"
-              id="shipPhoneNo"
-              placeholder="Phone No."
-              onChange={(e) => setPhoneNo(e.target.value)}
-              required
-            />
-          </div>
-          <div className="form-input">
-            <label htmlFor="shipAddress">
-              STREET ADDRESS<label className="red">*</label>
-            </label>
-            <input
-              type="text"
-              id="shipAddress"
-              placeholder="Street Address"
-              onChange={(e) => setAddress(e.target.value)}
-              required
-            />
-            <br />
-            <label htmlFor="apartment">APT / SUITE / OTHER</label>
-            <input
-              type="text"
-              id="apartment"
-              placeholder="Other"
-              onChange={(e) => setApt(e.target.value)}
-              required
-            />
-            <br />
-            <div className="flex">
-              <div className="flex flex-col w-49">
-                <label htmlFor="zipCode">
-                  ZIPCODE<label className="red">*</label>
-                </label>
-                <input
-                  type="text"
-                  id="zipCode"
-                  placeholder="ZipCode"
-                  onChange={(e) => setZipCode(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="flex flex-col w-49 ml-2">
-                <label htmlFor="city">
-                  CITY<label className="red">*</label>
-                </label>
-                <input
-                  type="text"
-                  id="city"
-                  placeholder="City"
-                  onChange={(e) => setCity(e.target.value)}
-                  required
-                />
-              </div>
-            </div>
-            <br />
-            <label htmlFor="state">
-              STATE<label className="red">*</label>
-            </label>
-            <select
-              name="state"
-              id="state"
-              onChange={(e) => setState(e.target.value)}
-              required
-            >
-              <option value="">Choose State Name</option>
-              <option value="Andhra Pradesh">Andhra Pradesh</option>
-              <option value="Assam">Assam</option>
-              <option value="Bihar">Bihar</option>
-              <option value="Goa">Goa</option>
-              <option value="Gujarat">Gujarat</option>
-              <option value="Haryana">Haryana</option>
-              <option value="Himachal Pradesh">Himachal Pradesh</option>
-              <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-              <option value="Jharkhand">Jharkhand</option>
-              <option value="Karnataka">Karnataka</option>
-              <option value="Kerala">KeralaKerala</option>
-              <option value="Madhya Pradesh">Madhya Pradesh</option>
-              <option value="Maharashtra">Maharashtra</option>
-              <option value="Manipur">Manipur</option>
-              <option value="">None</option>
-            </select>
-            <span>
-              <input type="checkbox" id="shipDefaultAddress" defaultChecked />
-              <label htmlFor="shipDefaultAddress">Set as default address</label>
-            </span>
-          </div>
-
-          <div className="payment-button-div">
-            <button
-              value="Confirm Order"
-              type="submit"
-              className="payment-button"
-              onClick={handleConfirmOrderClick}
-            >
-              CONFIRM ORDER
-            </button>
+  const content = addressData.map(
+    ({
+      address,
+      apt,
+      city,
+      isDefaultAddress,
+      name,
+      phoneNo,
+      state,
+      zipCode,
+      i,
+    }) => (
+      <div key={i} id={i} className="flex order-card">
+        <input
+          type="radio"
+          name="address"
+          className="radio-check"
+          defaultChecked={isDefaultAddress}
+        />
+        <div className="flex flex-col flex-1 m-1 font-size-13">
+          <h3 id={`name${i}`}>{name}</h3>
+          <p className="mt-1" id={`address${i}`}>
+            {address} {apt} {city} {state} {zipCode}
+          </p>
+          <div className="flex align-item-baseline mt-1">
+            <h3>Mobile No. :</h3>&nbsp;<p id={`phoneNo${i}`}>{phoneNo}</p>
           </div>
         </div>
-      </form>
+        <div className="flex flex-col app">
+          <div className="mt-1 hero-button" onClick={removeAddress}>
+            REMOVE
+          </div>
+          <div className="mt-1 hero-button" onClick={editAddress}>
+            EDIT
+          </div>
+        </div>
+      </div>
+    )
+  );
+
+  return (
+    <div>
+      {openAddressModal ? (
+        <Address
+          handleCloseAddressModal={handleCloseAddressModal}
+          addressId={addressId}
+        />
+      ) : null}
+      <div className="flex">
+        <h1 className="flex-1 m-1 align-item-center">
+          Select Delivery Address
+        </h1>
+        <div
+          className="hero-button m-1 mt-1"
+          onClick={() => setOpenAddressModal(true)}
+        >
+          ADD NEW ADDRESS
+        </div>
+        <div
+          className="hero-button m-1 mt-1"
+          onClick={() => handleProceedCheckout()}
+        >
+          PROCEED TO CHECKOUT
+        </div>
+      </div>
+      <hr></hr>
+      <div>{content}</div>
     </div>
   );
 }

@@ -76,6 +76,15 @@
 .none {
   display: none;
 }
+.align-item-baseline {
+  align-items: baseline;
+}
+.align-item-center {
+  align-items: center;
+}
+.pointer {
+  cursor: pointer;
+}
 
 ::-webkit-scrollbar {
   width: 10px;
