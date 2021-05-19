@@ -1,6 +1,7 @@
 import ProductInfo from "./ProductInfo";
 import { Link } from "react-router-dom";
 import "./Home.scss";
+import * as ROUTES from "./../constant/Routes";
 import BestSeller from "./BestSeller";
 import BrandSection from "./BrandSection";
 
@@ -11,7 +12,7 @@ function Home() {
         <div className="hero-content">
           <h1 className="hero-title">Online Flee Market for Clothes</h1>
           <h2 className="hero-subtitle">It's Time to recycle</h2>
-          <Link to="/products">
+          <Link to={ROUTES.PRODUCT_LIST}>
             <button type="button" className="hero-button">
               SHOP NOW
             </button>
