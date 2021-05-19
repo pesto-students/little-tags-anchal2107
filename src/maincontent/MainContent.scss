@@ -22,7 +22,7 @@
   width: 55%;
 }
 .h-100v {
-  height: 100vh;
+  height: 120vh;
 }
 .product-category {
   a {
@@ -42,7 +42,7 @@
     text-align: center;
   }
   .category-img {
-    height: 50vh;
+    height: 60vh;
     width: 100%;
   }
 }
@@ -57,5 +57,13 @@
   .w-45,
   .w-55 {
     width: 100%;
+  }
+  .product-category {
+    .category-img {
+      height: 50vh;
+    }
+  }
+  .h-100v {
+    height: 100vh;
   }
 }
